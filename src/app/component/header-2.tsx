@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CiSearch } from "react-icons/ci";
+
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IoMdSearch } from "react-icons/io";
