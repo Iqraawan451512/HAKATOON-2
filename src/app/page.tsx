@@ -29,7 +29,7 @@ but things on a small scale.
 
  <div className="section-2  mt-[3rem] ">
 <div className="content">
-  <h1 className="font-san ml-[30rem] font-bold text-[1.3rem] hover:text-blue-500 hover:font-serif hover:translate-x-1">EDITOR'S PICK</h1>
+  <h1 className="font-san ml-[30rem] font-bold text-[1.3rem] hover:text-blue-500 hover:font-serif hover:translate-x-1">EDITORS PICK</h1>
     <p className="text-gray-500 font-semibold ml-[25rem] hover:text-gray-800">problems trying to resolve the conflict between</p>
 
 </div>
@@ -243,7 +243,7 @@ but things on a small scale.
     <li className="text-[#c0c0c0]">Now</li>
   </ul>
 </h2>
-  <h1 className="mt-5 ml-2">Loudest a la Madision #1 <br /> (L'integral)</h1>
+  <h1 className="mt-5 ml-2">Loudest a la Madision #1 <br /> (L integral)</h1>
 <p className="font-sans  ml-2 font-semibold text-[0.8rem] text-[#c0c0c0]">
   we focuse on ergronomic and meeting you where your work. its only a krstroke away.
 </p>
@@ -274,7 +274,7 @@ but things on a small scale.
     <li className="text-[#c0c0c0]">Now</li>
   </ul>
 </h2>
-  <h1 className="mt-5 ml-2">Loudest a la Madision #1 <br /> (L'integral)</h1>
+  <h1 className="mt-5 ml-2">Loudest a la Madision #1 <br /> (L integral)</h1>
 <p className="font-sans  ml-2 font-semibold text-[0.8rem] text-[#c0c0c0]">
   we focuse on ergronomic and meeting you where your work. its only a krstroke away.
 </p>
@@ -311,7 +311,7 @@ but things on a small scale.
     <li className="text-[#c0c0c0]">Now</li>
   </ul>
 </h2>
-  <h1 className="mt-5 ml-2">Loudest a la Madision #1 <br /> (L'integral)</h1>
+  <h1 className="mt-5 ml-2">Loudest a la Madision #1 <br /> (L integral)</h1>
 <p className="font-sans  ml-2 font-semibold text-[0.8rem] text-[#c0c0c0]">
   we focuse on ergronomic and meeting you where your work. its only a krstroke away.
 </p>
