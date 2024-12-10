@@ -3,6 +3,8 @@
  import { LuAlarmClock } from "react-icons/lu";
  import { BsGraphUpArrow } from "react-icons/bs";
  import { FaAngleRight } from "react-icons/fa6";
+import Header_1 from "./component/header-1";
+import Header_2 from "./component/header-2";
 
 
 
@@ -10,6 +12,8 @@
  function Home(){
   return(
     <main>
+      <Header_1/>
+      <Header_2/>
       <div className="main-div w-full h-[30rem]  flex">
 
 <div className="picture h-[29rem] bg-[#00b4d8] ">
@@ -189,7 +193,7 @@ but things on a small scale.
 
     </div>
     
-<img src="https://scontent.fkhi22-1.fna.fbcdn.net/v/t1.15752-9/465804971_507645088985133_2701121249831779186_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEtahhO_xGZyoEdfJHB9ReN8ixm1bxfUhPyLGbVvF9SE4eOFzC0_tndMo688qFDMa6-ajra9jQlG0aT8MzLE-MU&_nc_ohc=4H10Dl-yfOsQ7kNvgFSCkQj&_nc_zt=23&_nc_ht=scontent.fkhi22-1.fna&oh=03_Q7cD1QH9GB9Fhq3Ckmvx0Ybm88x4BW3zB1FPLesP4buAO1T26Q&oe=677CEED3" alt="image" className="w-[20rem] h-[26.7rem] mt-[3rem]  absolute ml-[40rem]" />
+<img src="https://github.com/MuhammadMuaazMk/Hackathon/blob/main/public/11.png?raw=true" alt="image" className="w-[20rem] h-[26.7rem] mt-[3rem]  absolute ml-[40rem]" />
     
   </div>
 
@@ -281,7 +285,7 @@ but things on a small scale.
 
 <p className="flex mt-4">
 <span><LuAlarmClock  className="text-[0.5rem] mt-1 ml-1 text-blue-400"/></span><span className="text-[0.5rem] ml-[0.4rem] text-[#c0c0c0] font-semibold">22 april 2021</span>
-<span className="text-[0.5rem] text-[#c0c0c0] font-bold flex ml-[0.5rem]"><BsGraphUpArrow className="text-green-700 ml-[6rem] text-[0.9rem] font-bold"/>22 april 2021</span>
+<span className="text-[0.5rem] text-[#c0c0c0] font-bold flex ml-[0.5rem]"><BsGraphUpArrow className="text-green-700 ml-[6rem] text-[0.9rem] font-bold"/>10 comment</span>
 </p>
 <p className="flex text-[0.6rem] font-bold ml-[1rem] text-[#c0c0c0] mt-[0.5rem]">
   Learn More <FaAngleRight className="mt-1 text-blue-300"/>
@@ -318,7 +322,7 @@ but things on a small scale.
 
 <p className="flex mt-4">
 <span><LuAlarmClock  className="text-[0.5rem] mt-1 ml-1 text-blue-400"/></span><span className="text-[0.5rem] ml-[0.4rem] text-[#c0c0c0] font-semibold">22 april 2021</span>
-<span className="text-[0.5rem] text-[#c0c0c0] font-bold flex ml-[0.5rem]"><BsGraphUpArrow className="text-green-700 ml-[6rem] text-[0.9rem] font-bold"/>22 april 2021</span>
+<span className="text-[0.5rem] text-[#c0c0c0] font-bold flex ml-[0.5rem]"><BsGraphUpArrow className="text-green-700 ml-[6rem] text-[0.9rem] font-bold"/>10 comment</span>
 </p>
 <p className="flex text-[0.6rem] font-bold ml-[1rem] text-[#c0c0c0] mt-[0.5rem]">
   Learn More <FaAngleRight className="mt-1 text-blue-300"/>

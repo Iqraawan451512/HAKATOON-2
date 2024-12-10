@@ -14,14 +14,12 @@ import { MdSupervisorAccount } from "react-icons/md";
 
                 <ol className="flex gap-5 pt-8 font-serif text-[1rem]  ">
                   <Link href="/"> <li className="text-gray-400 hover:text-blue-800 font-semibold">Home</li></Link>
-                  <Link href="/"> <li className="text-gray-400 hover:text-blue-800 ">
+                  <Link href="/shop"> <li className="text-gray-400 hover:text-blue-800 font-semibold">
                     <select defaultValue="shop">
-                        <option defaultValue="shop">Shop</option>
+                        <option defaultValue="Shop">Shop</option>
                     </select>
-                    
-                    
-                    
                     </li></Link>
+
                     <Link href="/about"> <li className="text-gray-400 hover:text-blue-800 font-semibold">About</li></Link>
                     <Link href="/about"> <li className="text-gray-400 hover:text-blue-800 font-semibold">Blog</li></Link>
 
