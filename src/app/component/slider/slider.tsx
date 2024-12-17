@@ -2,14 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-// Order form component inline for this example, or you can import if it's a separate component.
-const Order = () => {
-  return (
-    <div className="w-[10rem] p-6 bg-white mt-6 mx-auto border border-gray-300 rounded-lg shadow-lg">
-      {/* Your order form content goes here */}
-    </div>
-  );
-};
+;
 
 const Slider = () => {
   const images = [
