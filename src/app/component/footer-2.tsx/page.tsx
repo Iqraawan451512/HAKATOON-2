@@ -2,13 +2,13 @@ import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoTwitter } from "react-icons/io5";
 
-function Footer(){
+function Footer_2(){
     return(
 <main>
-    <div className="div-one bg-gray-100 mt-[4rem] h-20 w-full  font-serif text-[0.8rem] font-semibold   text-[#13315c] pt-3 flex ">
-    <p className=" logo   ml-[10rem] mr-[5rem] pt-[0.8rem] font-sans font-bold text-[1.6rem] text-[#003049]  hover:text-blue-800">Bandage</p>
+    <div className="div-one h-20 w-full  font-serif text-[0.8rem] font-semibold  text-[#13315c] flex ">
+    <p className=" logo  ml-[10rem] mr-[5rem] font-sans font-bold text-[1.6rem] text-[#003049]">Bandage</p>
     
-     <FaInstagram  className=" mt-[2.2rem] hover:text-red-400 text-blue-400 text-[1rem] ml-[47rem]"/>  <FaFacebook  className="mt-[2.2rem] text-[1rem] ml-[1rem] text-blue-400  hover:text-blue-800" /> <IoLogoTwitter  className=" mt-[2.2rem] text-[1rem] text-blue-400  ml-[1rem] hover:text-gray-700"/>
+     <FaInstagram  className=" mt-[2.2rem] hover:text-red-400 text-blue-400 text-[1rem] ml-[47rem]"/><FaFacebook  className="mt-[2.2rem] text-[1rem] ml-[1rem] text-blue-400  hover:text-blue-800" /> <IoLogoTwitter  className=" mt-[2.2rem] text-[1rem] text-blue-400  ml-[1rem] hover:text-gray-700"/>
 </div>
 
 <div className="bg-white h-[10rem] w-full flex">
@@ -71,4 +71,4 @@ function Footer(){
 </main>
     )
 }
-export default Footer
+export default Footer_2

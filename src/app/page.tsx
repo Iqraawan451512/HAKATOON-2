@@ -5,7 +5,7 @@
  import { FaAngleRight } from "react-icons/fa6";
 import Header_1 from "./component/header-1";
 import Header_2 from "./component/header-2";
-
+import Footer from "./component/footer/page";
 
 
 
@@ -82,12 +82,12 @@ but things on a small scale.
 
 </div>
 {/** product-section */}
-<div className="main-of-product  flex flex-wrap w-[60rem] gap-4 text-center ml-[14rem] mt-[3rem] ">
+<div className="main-of-product   flex flex-wrap w-[60rem] gap-4 text-center ml-[14rem] mt-[3rem] ">
 {/**product-1 */}
 <div className="">
   <img src="https://scontent.fkhi6-1.fna.fbcdn.net/v/t1.15752-9/462637144_991007036396872_2825183210880074773_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHsX2lMhKidrHBzHDESTDt41laV7ZIDfi_WVpXtkgN-L3YMIMDcuLlazM_PkHDMjHsH4ZRoUgcCoLxgv8o7HV91&_nc_ohc=RkZZ_kvgdDcQ7kNvgGYSjjR&_nc_zt=23&_nc_ht=scontent.fkhi6-1.fna&oh=03_Q7cD1QGFMoctUuGSd1o_6glGki8DP3F3p-nVgCmJxPlblPD6ew&oe=677CC61B" alt="product-image" className="w-[12rem] h-[22rem]" />
 
-<p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
+<p className="font-sans text-gray-black   text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
 <p className=" text-[#6c757d] font-sans font-semibold text-[0.9rem]  text-center mt-2">English Department</p>
 <p className="font-mono font-bold text-[0.8rem]  mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
   <p className="ml-[3.8rem] flex"><GoDotFill  className="text-[1.2rem] text-blue-400"/><GoDotFill  className="text-[1.2rem] text-green-600 "/>
@@ -358,7 +358,6 @@ but things on a small scale.
 
 
 </div>
-{/** */}
 
 
 
@@ -367,6 +366,7 @@ but things on a small scale.
 
 
 
+<Footer/>
     </main>
   )
 }
