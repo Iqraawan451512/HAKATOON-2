@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 
-;
-
 const Slider = () => {
   const images = [
     { src: "sofa.jpg" },
