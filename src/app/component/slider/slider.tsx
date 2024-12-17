@@ -13,7 +13,6 @@ const Slider = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showOrderForm, setShowOrderForm] = useState(false); // State to control order form visibility
 
   // Automatically change the slide every 3 seconds
   useEffect(() => {
