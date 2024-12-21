@@ -329,7 +329,7 @@ function Pricing(){
 </div>
 
 <h1 className="text-center text-gray-400 font-semibold text-[1rem] hover:text-blue-900 mt-[4rem] font-sans">
-  <Link href="/about">Haven't got your answers? Call our support</Link>
+  <Link href="/about">Haven not got your answers? Call our support</Link>
 </h1>
 </div>
 
