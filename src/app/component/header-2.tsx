@@ -16,12 +16,12 @@ function Header_2() {
 
   return (
     <main>
-      <nav className="bg-white h-20 flex items-center justify-between border-b border-[#e5e5e5] px-4">
+      <nav className="bg-white h-20 flex items-center gap-10 border-b border-[#e5e5e5] px-4">
         {/* Logo */}
-        <h1 className="logo font-sans font-bold text-[1.6rem] ml-[1rem] text-[#003049] hover:text-blue-400 cursor-pointer">Bandage</h1>
+        <h1 className="logo font-sans font-bold text-[1.6rem] ml-[4rem] text-[#003049] hover:text-blue-400 cursor-pointer">Bandage</h1>
 
         {/* Desktop and tablet navigation */}
-        <ol className="hidden sm:flex gap-5 font-serif text-[1rem]">
+        <ol className="hidden  md:ml-[15rem] sm:flex gap-5 font-serif text-[1rem]">
           <Link href="/"><li className="text-gray-400 hover:text-blue-800 font-semibold">Home</li></Link>
           <Link href="/shop"><li className="text-gray-400 hover:text-blue-800 font-semibold">Shop</li></Link>
           <Link href="/about"><li className="text-gray-400 hover:text-blue-800 font-semibold">About</li></Link>
@@ -59,7 +59,7 @@ function Header_2() {
           <Link href="/"><li className="py-2 hover:text-sky-400">Home</li></Link>
           <Link href="/shop"><li className="py-2 hover:text-sky-400">Shop</li></Link>
           <Link href="/about"><li className="py-2 hover:text-sky-400">About</li></Link>
-          <Link href="/blog"><li className="py-2 hover:text-sky-400">Blog</li></Link>
+          <Link href="/bloge"><li className="py-2 hover:text-sky-400">Blog</li></Link>
           <Link href="/contact"><li className="py-2 hover:text-sky-400">Contact</li></Link>
           <Link href="/pages"><li className="py-2 hover:text-sky-400">Pages</li></Link>
         </ol>

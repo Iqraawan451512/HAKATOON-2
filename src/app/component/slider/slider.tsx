@@ -24,8 +24,6 @@ const Slider = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  
-
   // Move to the next image
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -41,7 +39,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="relative w-[30rem] overflow-hidden ml-[10rem] mt-[4rem] h-[22rem]">
+    <div className="relative w-full md:w-[30rem] h-[22rem] overflow-hidden mx-auto mt-10">
       {/* Image container */}
       <div
         className="flex transition-transform duration-500"
@@ -54,7 +52,7 @@ const Slider = () => {
             <img
               src={image.src}
               alt={`Slide ${index + 1}`}
-              className="w-[30rem] h-[30rem] object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
         ))}
@@ -63,18 +61,18 @@ const Slider = () => {
       {/* Left and right navigation arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2 text-[2rem] text-white ml-[0.6rem]  "
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 p-2 text-3xl text-white bg-black bg-opacity-50 hover:bg-opacity-75 transition duration-300"
+        aria-label="Previous Slide"
       >
         &lt;
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 text-[2rem] text-white"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 text-3xl text-white bg-black bg-opacity-50 hover:bg-opacity-75 transition duration-300"
+        aria-label="Next Slide"
       >
         &gt;
       </button>
-
-     
     </div>
   );
 };

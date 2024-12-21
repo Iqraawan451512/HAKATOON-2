@@ -1,36 +1,158 @@
 import Header_2 from "../component/header-2";
 import Header_3 from "../component/headetr_3/page";
-import { FaAngleRight } from "react-icons/fa6";
 import Link from "next/link";
 import { AiFillAppstore } from "react-icons/ai";
 import { AiOutlineBars } from "react-icons/ai";
 import Footer from "../component/footer/page";
 import { GoDotFill } from "react-icons/go";
+import { TiTick } from "react-icons/ti";
+import { FaAngleRight } from "react-icons/fa6";
+import { FiToggleLeft } from "react-icons/fi";
 
-function Shop() {
+function Blog() {
     return (
         <main>
             <Header_3 />
             <Header_2 />
             <div className="div-one">
-                <div className="shop-one-div">
-                    <div className="content flex flex-col md:flex-row gap-4 md:gap-[30rem] h-[4rem] bg-gray-100">
-                        <h1 className="font-bold mx-auto md:ml-[10.5rem] mt-5">Shop</h1>
-                        <ul className="flex mt-6 justify-center md:justify-start">
-                            <Link href="/" target="_blank">
-                                <li className="flex font-sans  text-[0.8rem] font-semibold">
-                                    Home
-                                    <FaAngleRight className="mt-[0.5em] ml-[0.7rem]" />
-                                </li>
-                            </Link>
-                            <Link href="/shop">
-                                <li className="flex font-sans text-[0.8rem] mt-[0.1rem] ml-[0.4rem] font-bold text-gray-400">Shop</li>
-                            </Link>
-                        </ul>
+                <div className="shop-one-div md:mb-[5rem]">
+                    <div className="main-two bg-slate-50 h-[15rem] pt-[5rem] text-center ">
+                        <h2 className="text-gray-800 text-[1.6rem] font-sans font-bold hover:text-gray-700">Pricing</h2>
+                        <h1 className="text-[0.7rem] text-gray-400  mt-[0.8rem] font-bold hover:text-blue-500">
+                        Problems trying to resolve the conflict between  <br /> the two major realms of 
+                        Classical physics : Newtonian mechanics
+                        </h1>
+                        <h3 className="flex text-[0.8rem] gap-1 text-gray-800 ml-[33rem] mt-3 font-bold ">monthly  <FiToggleLeft className="mr-2  text-[1.6rem] text-blue-300"/>
+                        <span>Yearly</span> <button className="boder-2 w-[4rem] rounded-[40rem] hover:bg-blue-950 bg-blue-300 text-blue-600 font-bold border-gray-700 h-[1.5rem] text-[0.5rem]">save 25%</button></h3>
+                    </div>
+                    
+                    <div className="section-5-main flex flex-col md:flex-row gap-1 mt-2 px-4 lg:ml-[15rem]">
+                      {/* Card 1 */}
+                      <div className="div-1 h-[27.8rem] w-[15rem] text-center border-[0.1rem] hover:translate-y-3 border-blue-400 rounded mt-[0.8rem] mx-auto md:mx-0">
+                        <h1 className="font-sans font-bold text-[1.2rem] text-gray-900 mt-[2rem] hover:text-blue-600">FREE</h1>
+                        <p className="font-sans text-gray-400 font-semibold text-[0.9rem] mt-[1rem]">Organize across all <br /> apps by hand</p>
+                        <h2 className="flex mt-[1rem] justify-center">
+                          <div className="text-blue-400 font-sans font-bold text-[1.7rem]">
+                            0
+                          </div>
+                          <div className="text-blue-400 text-[1rem] font-sans font-bold">
+                            $
+                            <div className="text-blue-300 text-[0.7rem]">Per Month</div>
+                          </div>
+                        </h2>
+                        {/* Offers */}
+                        <div className="main space-y-4 mt-[1rem] ">
+                          <div className="text-gray-500 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-green-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Unlimited Product Updates</span>
+                          </div>
+                          <div className="text-gray-500 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-green-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Unlimited Product Updates</span>
+                          </div>
+                          <div className="text-gray-500 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-green-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Unlimited Product Updates</span>
+                          </div>
+                          <div className="text-gray-500 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-gray-300 font-extralight text-[0.6rem]" /></span>
+                            <span>IGB Cloud Storage</span>
+                          </div>
+                          <div className="text-gray-500 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-gray-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Email and community support</span>
+                          </div>
+                        </div>
+                        <div className="w-[10rem] mx-auto h-[2rem] mt-[1.5rem] hover:bg-sky-700 bg-blue-950">
+                          <button className="text-center font-sans text-[0.8rem] text-slate-100 font-semibold">Try for free</button>
+                        </div>
+                      </div>
+                    
+                      {/* Card 2 */}
+                      <div className="div-1 h-[28.9rem] w-[15rem] text-center bg-blue-900 hover:translate-y-3 border-[0.1rem] border-blue-400 rounded mx-auto md:mx-0">
+                        <h1 className="font-sans font-bold text-[1.2rem] text-gray-100 mt-[2rem] hover:text-blue-950">STANDARD</h1>
+                        <p className="font-sans text-gray-100 font-semibold text-[0.9rem] mt-[1rem]">Organize across all <br /> apps by hand</p>
+                        <h2 className="flex mt-[1rem] justify-center">
+                          <div className="text-blue-400 font-sans font-bold text-[1.7rem]">
+                            9.99
+                          </div>
+                          <div className="text-blue-400 text-[1rem] font-sans font-bold">
+                            $
+                            <div className="text-blue-300 text-[0.7rem]">Per Month</div>
+                          </div>
+                        </h2>
+                        {/* Offers */}
+                        <div className="main space-y-4 mt-[1rem]">
+                          <div className="text-gray-100 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-green-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Unlimited Product Updates</span>
+                          </div>
+                          <div className="text-gray-100 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-green-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Unlimited Product Updates</span>
+                          </div>
+                          <div className="text-gray-100 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-green-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Unlimited Product Updates</span>
+                          </div>
+                          <div className="text-gray-100 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-gray-300 font-extralight text-[0.6rem]" /></span>
+                            <span>IGB Cloud Storage</span>
+                          </div>
+                          <div className="text-gray-100 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-gray-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Email and community support</span>
+                          </div>
+                        </div>
+                        <div className="w-[10rem] mx-auto h-[2rem] mt-[1.5rem] hover:bg-blue-950 bg-blue-400">
+                          <button className="text-center font-sans text-[0.8rem] text-slate-100 font-semibold">Try for free</button>
+                        </div>
+                      </div>
+                    
+                      {/* Card 3 */}
+                      <div className="div-1 h-[27.5rem] w-[15rem] text-center border-[0.1rem] hover:translate-y-2 border-blue-400  mt-[0.8rem] rounded mx-auto md:mx-0">
+                        <h1 className="font-sans font-bold text-[1.2rem] text-gray-900 mt-[2rem] hover:text-blue-600">PREMIUM</h1>
+                        <p className="font-sans text-gray-400 font-semibold text-[0.9rem] mt-[1rem]">Organize across all <br /> apps by hand</p>
+                        <h2 className="flex mt-[1rem] justify-center">
+                          <div className="text-blue-400 font-sans font-bold text-[1.7rem]">
+                            19.99
+                          </div>
+                          <div className="text-blue-400 text-[1rem] font-sans font-bold">
+                            $
+                            <div className="text-blue-300 text-[0.7rem]">Per Month</div>
+                          </div>
+                        </h2>
+                        {/* Offers */}
+                        <div className="main space-y-4 mt-[1rem]">
+                          <div className="text-gray-500 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-green-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Unlimited Product Updates</span>
+                          </div>
+                          <div className="text-gray-500 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-green-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Unlimited Product Updates</span>
+                          </div>
+                          <div className="text-gray-500 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-green-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Unlimited Product Updates</span>
+                          </div>
+                          <div className="text-gray-500 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-gray-300 font-extralight text-[0.6rem]" /></span>
+                            <span>IGB Cloud Storage</span>
+                          </div>
+                          <div className="text-gray-500 font-bold flex font-sans justify-start ml-[2rem] gap-1 text-[0.7rem]">
+                            <span><TiTick className="w-4 h-4 rounded-lg text-gray-50 bg-gray-300 font-extralight text-[0.6rem]" /></span>
+                            <span>Email and community support</span>
+                          </div>
+                        </div>
+                        <div className="w-[10rem] mx-auto h-[2rem] mt-[1.5rem] hover:bg-blue-700 bg-blue-400">
+                          <button className="text-center font-sans text-[0.8rem] text-slate-100 font-semibold">Try for free</button>
+                        </div>
+                      </div>
                     </div>
 
                     {/* Cards Section */}
-                    <div className="shop-card flex flex-wrap gap-5 bg-gray-100 justify-center">
+                    <div className="shop-card flex flex-wrap gap-5 bg-gray-100 justify-center mt-[5rem]">
     {/* Card 1 */}
     <div className="card h-[12rem] sm:w-[8rem] md:w-[10rem] lg:w-[12rem]">
         <img src="card-item (2).png" alt="picture" className="h-full w-full hover:translate-y-4 object-cover" />
@@ -229,11 +351,6 @@ function Shop() {
 </div>
 
 </div>
-<div className="button-div mt-[5rem] text-center w-full h-[5rem] bg-white">
- <Link href="/"><button className=" border-[0.1rem] bg-white text-slate-400 text-[0.9rem] hover:bg-blue-700 hover:text-slate-200 font-sans font-semibold border-gray-300 w-[4rem] h-[3rem]">First</button></Link>
- <Link href="/shop" target="_blank"><button className="bg-white hover:bg-blue-600 text-blue-600 hover:text-slate-300 border-[0.1rem] text-[0.9rem] font-medium border-gray-300 w-[2rem] h-[3rem]">1</button></Link>
- <Link href="/shop-2" target="_blank"><button className="bg-white hover:bg-blue-600 text-blue-600 hover:text-slate-300 border-[0.1rem]  text-[0.9rem ] font-medium border-gray-300 w-[2rem] h-[3rem]">2</button></Link>
- <Link href="/shop"><button className=" border-[0.1rem] bg-white border-gray-300 w-[4rem]  hover:bg-blue-600 hover:text-slate-200 text-[0.9rem] font-sans font-semibold text-blue-500 h-[3rem]">Next</button></Link>
 
 
 
@@ -243,25 +360,11 @@ function Shop() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </div>
+            
 
            
         </main>
     );
 }
 
-export default Shop;
+export default Blog;

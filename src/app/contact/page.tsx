@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { FaArrowRight } from "react-icons/fa";
 import { ImTwitter } from "react-icons/im";
@@ -9,7 +10,24 @@ import { HiOutlineMail } from "react-icons/hi";
 import { IoLocation } from "react-icons/io5";
 import { PiArrowBendRightDownFill } from "react-icons/pi";
 import Footer from "../component/footer/page";
+import { useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi'; // For Hamburger and Close icon
+
+
+
+
+
+
 function  Contact(){
+        const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle the menu
+      
+        const toggleMenu = () => {
+          setIsMenuOpen(!isMenuOpen); // Toggle the menu state
+        };
+
+
+
+
     return(
 <main>
 <div className="main-div">
@@ -17,92 +35,131 @@ function  Contact(){
 {/**sectio-navbar**/}
 
 <div className="div-nav">
-    <ul className="flex gap-[1.5rem] font-bold mt-[3rem] font-sans">
-        <Link href="/"><li className="text-[1.5rem] ml-[10rem] hover:text-blue-400 " >Bnadage</li></Link>
-        <Link href="/shop-2"><li className="mt-[0.4rem] ml-[13rem] text-slate-500 text-[0.8rem]  hover:text-blue-400 ">Product</li></Link>
-        <Link href="/about"><li className="mt-[0.4rem] text-slate-500 text-[0.8rem]  hover:text-blue-400 ">About</li></Link>
-        <Link href="/pricing"> <li className="mt-[0.4rem]  text-slate-500 text-[0.8rem]  hover:text-blue-400 ">Pricing</li></Link>
-        <Link href="/contact"><li className="mt-[0.4rem]  text-slate-500 text-[0.8rem]  hover:text-blue-400 ">Contact</li></Link>
-        <li className="mt-[0.4rem]  ml-[14rem] text-blue-400 text-[0.8rem]  hover:text-slate-400 ">Login</li>
-        <li className="mt-[0.1rem]  text-blue-400 text-[0.8rem]  hover:text-blue-400 ">
-            <button  className=" flex w-[10rem] hover:bg-slate-500 hover:text-slate-200 rounded h-[3rem] pt-3 pl-3 bg-blue-400 font-semibold text-white text-center">Become a member
-            <FaArrowRight  className="ml-2 text-[0.8rem] mt-[0.2rem]"/>
+      {/* Navigation Container */}
+      <ul className="flex  lg:ml-[15rem]  md:flex-row md:justify-between gap-8 md:gap-2 font-bold mt-12 px-4">
 
+        {/* Brand Name */}
+        <Link href="/">
+          <li className="text-2xl font-sans text-gray-800 hover:text-blue-400 cursor-pointer">
+            Bandage
+          </li>
+        </Link>
+
+        {/* Hamburger Icon - Visible only on small screens */}
+        <div className="md:hidden flex md:ml-[10rem]">
+          <button onClick={toggleMenu} className="text-gray-800">
+            {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />} {/* Toggle between hamburger and close icon */}
+          </button>
+        </div>
+
+        {/* Navigation Links */}
+        <div className={`flex lg:flex-col md:flex-col gap-4 md:gap-8 mt-4 md:mt-0  ${isMenuOpen ? 'block' : 'hidden md:block'}`}>
+         <ul className="flex gap-4 ">
+          <Link href="/shop-2">
+            <li className="text-slate-500 text-sm hover:text-blue-400 cursor-pointer">
+              Product
+            </li>
+          </Link>
+          <Link href="/about">
+            <li className="text-slate-500 text-sm hover:text-blue-400 cursor-pointer">
+              About
+            </li>
+          </Link>
+          <Link href="/pricing">
+            <li className="text-slate-500 text-sm hover:text-blue-400 cursor-pointer">
+              Pricing
+            </li>
+          </Link>
+          <Link href="/contact">
+            <li className="text-slate-500 text-sm hover:text-blue-400 cursor-pointer">
+              Contact
+            </li>
+          </Link>
+          </ul>
+        </div>
+
+        {/* Login and Membership Button */}
+        <div className=" lg:flex md:block hidden flex-col md:flex-row gap-4 mt-2 md:mt-0">
+          <Link href="/login">
+            <li className="text-blue-400 text-sm hover:text-slate-400 cursor-pointer">
+              Login
+            </li>
+          </Link>
+          <li>
+            <button className="  lg:flex  md:block hidden items-center justify-center w-[10rem] h-[3rem] rounded bg-blue-400 text-white font-semibold hover:bg-slate-500 hover:text-slate-200">
+              Become a member
+              <FaArrowRight className="ml-2 text-sm" />
             </button>
-        </li>
+          </li>
+        </div>
 
-    </ul>
-</div>
+      </ul>
+    </div>
+  
 {/** section-main */}
-<div className="main flex mt-[5rem]  gap-[10rem]">
-    <div className="main-content   mt-[1.6rem] ">
-<h3 className="text-[0.8rem] ml-[13rem] font-bold font-sans text-slate-800 hover:text-gray-400 ">Contact us</h3>
-<h1 className="text-[3rem] mt-[1rem]  ml-[12rem]  font-bold font-sens hover:text-blue-400 ">Get in touch <br />today!</h1>
-    <p className="text-slate-400 text-[0.8rem]  font-sans mt-[1rem] font-semibold ml-[12.2rem] ">
-        we know How Large Object Will Act , <br />
-        But Things On Small Scale 
-       </p>
-       
-        <ul>
-            <li className="text-blue-900 font-bold ml-[12.5rem] mt-[1rem]">phone; <span>+415151221</span></li>
-            <li className="text-blue-900 font-bold ml-[12.5rem] mt-[0.5rem]">fax: <span>+415151221</span></li>
-
-        </ul>
-        <p className="text-center text-gray-500 font-semibold  ml-[12rem] flex text-[1.5rem] gap-4 mt-[1rem] font-sans">
-        <ImTwitter className="text-gray-800 hover:cursor-pointer hover:text-blue-900" /><FaFacebookSquare className="text-gray-800 hover:text-blue-400 hover:cursor-pointer" /><FaInstagram  className="text-gray-800 hover:text-red-800 hover:cursor-pointer"/><FaLinkedin className="text-gray-800 hover:text-blue-400 hover:cursor-pointer" />
-        
+<div className="main flex flex-col md:flex-row items-center justify-center mt-20 gap-10 px-4">
+    {/* Main Content */}
+    <div className="main-content text-center md:text-left">
+        <h3 className="text-sm font-bold text-slate-800 hover:text-gray-400 mb-2 md:ml-12">Contact us</h3>
+        <h1 className="text-3xl font-bold text-slate-800 hover:text-blue-400 mb-4 md:ml-12">Get in touch <br />today!</h1>
+        <p className="text-slate-400 text-sm font-semibold mb-4 md:ml-12">
+            We know how large objects will act, <br />
+            but things on a small scale.
         </p>
-       
+        <ul className="text-blue-900 font-bold md:ml-12 mb-4">
+            <li className="mt-2">Phone: <span>+415151221</span></li>
+            <li className="mt-2">Fax: <span>+415151221</span></li>
+        </ul>
+        <div className="flex justify-center gap-6 text-2xl text-gray-800 mb-4">
+            <ImTwitter className="hover:text-blue-900 cursor-pointer" />
+            <FaFacebookSquare className="hover:text-blue-400 cursor-pointer" />
+            <FaInstagram className="hover:text-red-800 cursor-pointer" />
+            <FaLinkedin className="hover:text-blue-400 cursor-pointer" />
+        </div>
     </div>
 
-<div className="main-picture">
-    <img src="contact-main.png" alt="picture" className="w-[30rem] h-[30rem]" />
+    {/* Image Section */}
+    <div className="main-picture">
+        <img src="contact-main.png" alt="contact image" className="w-[30rem] h-[30rem] object-cover" />
+    </div>
 </div>
-</div>
+
 {/**section-2 */}
 <div className="main-one mt-[4rem] text-center">
     <h2 className="text-gray-800 text-[0.8rem] font-bold hover:text-gray-400">VISIT OUR OFFICE</h2>
     <h1 className="text-[2rem] text-gray-800 font-bold hover:text-blue-500">We help small businesses  <br /> with big ideas</h1>
-
-</div>
-
-{/**section-3 */}
-<div className="section-3-main flex">
-    {/**"card-1**/}
-<div className="div-1 h-[20.8rem]   mt-[4rem] ml-[16rem] w-[15rem] text-center bg-slate-50  hover:translate-y-3 rounded">
-<p className="ml-[6rem]"><CiPhone className="  cursor-pointer font-extrabold mt-[3.5rem] text-[3rem]  text-blue-400"/></p>
-<p className="text-center text-gray-800 text-[0.7rem] cursor-pointer font-sans font-bold hover:text-blue-700 mt-[1rem]">georgia.young@example.com </p>
-<p className=" text-center text-gray-800 text-[0.7rem] font-sans cursor-pointer font-bold hover:text-blue-700 mt-[0.6rem]">geogria.young@ple.com</p>
-<h2 className="text-center text-gray-800  text-[0.9rem] font-sans font-bold hover:text-blue-900  mt-[1rem]">Get Support</h2>
-<button className="w-[9rem]  rounded-full h-[3rem] text-center cursor-pointer hover:bg-blue-400 hover:text-gray-200 text-[0.8rem] font-semibold text-blue-400 border-[0.1rem] border-blue-400 bg-slate-50 mt-[1.5rem]">Submit Request</button>
-
-</div>
- {/**"card-2**/}
- <div className="div-2 h-[20.8rem]   mt-[4rem]  w-[15rem] text-center bg-blue-950  hover:translate-y-3 rounded">
-<p className="ml-[6rem]"><IoLocation className="  cursor-pointer font-extrabold mt-[3.5rem] text-[3rem]  text-blue-400"/></p>
-<p className="text-center text-gray-50 text-[0.7rem] cursor-pointer font-sans font-bold hover:text-blue-700 mt-[1rem]">georgia.young@example.com </p>
-<p className=" text-center text-gray-50 text-[0.7rem] font-sans cursor-pointer font-bold hover:text-blue-700 mt-[0.6rem]">geogria.young@ple.com</p>
-<h2 className="text-center text-gray-50  text-[0.9rem] font-sans font-bold hover:text-blue-900  mt-[1rem]">Get Support</h2>
-<button className="w-[9rem]  rounded-full h-[3rem]  bg-transparent text-center cursor-pointer hover:bg-blue-400 hover:text-gray-200 text-[0.8rem] font-semibold text-blue-400 border-[0.1rem] border-blue-400 bg-slate-50 mt-[1.5rem]">Submit Request</button>
-
 </div>
 
 
+<div className="section-3-main flex flex-wrap justify-center gap-8 mt-16">
+    {/* Card 1 */}
+    <div className="div-1 h-[20.8rem] w-[15rem] text-center bg-slate-50 hover:translate-y-3 rounded shadow-lg">
+        <p className="ml-[6rem] mt-12"><CiPhone className="cursor-pointer text-[3rem] text-blue-400" /></p>
+        <p className="text-center text-gray-800 text-sm cursor-pointer font-semibold hover:text-blue-700 mt-4">georgia.young@example.com</p>
+        <p className="text-center text-gray-800 text-sm cursor-pointer font-semibold hover:text-blue-700 mt-2">georgia.young@ple.com</p>
+        <h2 className="text-center text-gray-800 text-sm font-semibold hover:text-blue-900 mt-4">Get Support</h2>
+        <button className="w-[9rem] rounded-full h-[3rem] text-center cursor-pointer hover:bg-blue-400 hover:text-gray-200 text-sm font-semibold text-blue-400 border-[0.1rem] border-blue-400 bg-slate-50 mt-4">Submit Request</button>
+    </div>
 
+    {/* Card 2 */}
+    <div className="div-2 h-[20.8rem] w-[15rem] text-center bg-blue-950 hover:translate-y-3 rounded shadow-lg">
+        <p className="ml-[6rem] mt-12"><IoLocation className="cursor-pointer text-[3rem] text-blue-400" /></p>
+        <p className="text-center text-gray-50 text-sm cursor-pointer font-semibold hover:text-blue-700 mt-4">georgia.young@example.com</p>
+        <p className="text-center text-gray-50 text-sm cursor-pointer font-semibold hover:text-blue-700 mt-2">georgia.young@ple.com</p>
+        <h2 className="text-center text-gray-50 text-sm font-semibold hover:text-blue-900 mt-4">Get Support</h2>
+        <button className="w-[9rem] rounded-full h-[3rem] text-center cursor-pointer hover:bg-blue-400 hover:text-gray-200 text-sm font-semibold text-blue-400 border-[0.1rem] border-blue-400 bg-slate-50 mt-4">Submit Request</button>
+    </div>
 
-
- {/**"card-3**/}
- <div className="div-3 h-[20.8rem]   mt-[4rem]  w-[15rem] text-center bg-slate-50  hover:translate-y-3 rounded">
-<p className="ml-[6rem]"><HiOutlineMail className="  cursor-pointer font-extrabold mt-[3.5rem] text-[3rem]  text-blue-400"/></p>
-<p className="text-center text-gray-800 text-[0.7rem] cursor-pointer font-sans font-bold hover:text-blue-700 mt-[1rem]">georgia.young@example.com </p>
-<p className=" text-center text-gray-800 text-[0.7rem] font-sans cursor-pointer font-bold hover:text-blue-700 mt-[0.6rem]">geogria.young@ple.com</p>
-<h2 className="text-center text-gray-800  text-[0.9rem] font-sans font-bold hover:text-blue-900  mt-[1rem]">Get Support</h2>
-<button className="w-[9rem]  rounded-full h-[3rem] text-center cursor-pointer hover:bg-blue-400 hover:text-gray-200 text-[0.8rem] font-semibold text-blue-400 border-[0.1rem] border-blue-400 bg-slate-50 mt-[1.5rem]">Submit Request</button>
-
+    {/* Card 3 */}
+    <div className="div-3 h-[20.8rem] w-[15rem] text-center bg-slate-50 hover:translate-y-3 rounded shadow-lg">
+        <p className="ml-[6rem] mt-12"><HiOutlineMail className="cursor-pointer text-[3rem] text-blue-400" /></p>
+        <p className="text-center text-gray-800 text-sm cursor-pointer font-semibold hover:text-blue-700 mt-4">georgia.young@example.com</p>
+        <p className="text-center text-gray-800 text-sm cursor-pointer font-semibold hover:text-blue-700 mt-2">georgia.young@ple.com</p>
+        <h2 className="text-center text-gray-800 text-sm font-semibold hover:text-blue-900 mt-4">Get Support</h2>
+        <button className="w-[9rem] rounded-full h-[3rem] text-center cursor-pointer hover:bg-blue-400 hover:text-gray-200 text-sm font-semibold text-blue-400 border-[0.1rem] border-blue-400 bg-slate-50 mt-4">Submit Request</button>
+    </div>
 </div>
 
-
-</div>
 {/**last-section */}
 <div className="section-six">
   <div className="content-six mt-[6rem] text-center text-balance  ">
