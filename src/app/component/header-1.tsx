@@ -17,7 +17,7 @@ function Header_1() {
 
   return (
     <main>
-      <div className="bg-[#14213d] text-white font-serif py-3">
+      <div className="bg-[#14213d] text-white font-serif py-3 ">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center px-4">
           {/* Left Section: Contact Information */}
           <ul className="hidden sm:flex items-center space-x-6">

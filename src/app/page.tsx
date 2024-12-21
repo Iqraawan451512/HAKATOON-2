@@ -12,9 +12,9 @@ import Footer from "./component/footer/page";
  function Home(){
   return(
     <main>
-      <Header_1/>
+      <Header_1/> 
       <Header_2/>
-      <div className="main-div w-full h-[30rem] flex flex-col md:flex-row">
+      <div className="main-div w-full   h-[30rem] flex flex-col md:flex-row">
   <div className="picture h-[29rem] bg-[#00b4d8] ">
     <img
       src="https://scontent.fkhi6-1.fna.fbcdn.net/v/t1.15752-9/467456273_562479099719060_7169677925994754884_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEnBRrd-kECVV38YUflXnuBSDUx_7WglUJINTH_taCVQjXg8thjCNl-ckEgZBFPcXwSUSeDai0zI55ooEr2iYf9&_nc_ohc=zIrsbXOEaQUQ7kNvgEnhJ8-&_nc_zt=23&_nc_ht=scontent.fkhi6-1.fna&oh=03_Q7cD1QGkovzWtc_4TPqUukDcOSbcvQbr16OcwBSbQTFgF5XZLw&oe=677CCC69"
