@@ -1,12 +1,10 @@
 import Header_2 from "../component/header-2";
 import Header_3 from "../component/headetr_3/page";
-import Link from "next/link";
 import { AiFillAppstore } from "react-icons/ai";
 import { AiOutlineBars } from "react-icons/ai";
 import Footer from "../component/footer/page";
 import { GoDotFill } from "react-icons/go";
 import { TiTick } from "react-icons/ti";
-import { FaAngleRight } from "react-icons/fa6";
 import { FiToggleLeft } from "react-icons/fi";
 
 function Blog() {
