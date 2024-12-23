@@ -65,7 +65,7 @@ function About(){
         </div>
 
         {/* Login and Membership Button */}
-        <div className=" lg:flex md:block hidden flex-col md:flex-row gap-4 mt-2 md:mt-0">
+        <div className=" lg:flex md:block hidden flex-col md:flex-row gap-4  mt-2 md:mt-0">
           <Link href="/login">
             <li className="text-blue-400 text-sm hover:text-slate-400 cursor-pointer">
               Login
@@ -229,7 +229,7 @@ the two major realms of Classical physics: Newtonian mechancics </p>
       Work With Us
     </h3>
     <h1 className="text-center lg:text-center text-[2rem] font-sans font-bold text-white hover:text-blue-300 mt-4">
-      Now Let's Grow Your
+      Now Lets Grow Your
     </h1>
     <p className="text-center lg:text-center text-[0.7rem] text-white font-sans font-semibold mt-[2rem]">
       The gradual accumulation of information about atomic <br />
