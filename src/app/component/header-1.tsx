@@ -17,7 +17,7 @@ function Header_1() {
 
   return (
     <main>
-      <div className="bg-[#14213d] text-white font-serif py-3 ">
+      <div className="bg-[#14213d] text-white font-serif py-3">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center px-4">
           {/* Left Section: Contact Information */}
           <ul className="hidden sm:flex items-center space-x-6">
@@ -34,14 +34,14 @@ function Header_1() {
           {/* Center Section: Promotional Message */}
           <div className="text-center sm:text-left text-xs sm:text-sm mb-3 sm:mb-0">
             <span className="block sm:inline-block text-white hover:text-slate-500">
-              Follow Us and get a chance to Win 80% off
+              Follow Us <span className="ml-[1rem]"> and get a chance to Win 80% off</span> 
             </span>
           </div>
 
           {/* Right Section: Social Media Links */}
           <div className="hidden sm:flex items-center gap-4">
-            <span className="text-white">Follow Us:</span>
-            <div className="flex gap-2">
+            <span className="text-white ml-[5rem] ">Follow Us:</span>
+            <div className="flex gap-2 ml-4">
               <FaInstagram className="hover:text-red-400" />
               <FaYoutube className="hover:text-red-600" />
               <FaFacebook className="hover:text-blue-800" />
