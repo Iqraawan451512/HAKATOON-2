@@ -16,7 +16,7 @@ function Header() {
   return (
     <nav className="bg-white flex items-center h-[5rem] gap-10 border-b border-[#e5e5e5] px-4  top-10 left-0 right-0">
       {/* Logo */}
-      <h1 className="logo font-sans font-bold text-[1.6rem] ml-[4rem] text-[#003049] hover:text-blue-400 cursor-pointer">
+      <h1 className="logo font-sans font-bold text-[1.6rem] ml-[1rem] md:ml-[4rem] text-[#003049] hover:text-blue-400 cursor-pointer">
         Bandage
       </h1>
 
@@ -43,22 +43,22 @@ function Header() {
       </ol>
 
       {/* Desktop login / register and icons */}
-      <div className="hidden sm:flex items-center gap-3">
+      <div className="  flex flex-row gap-3 ">
         <p className="flex font-bold text-sky-400">
           <MdSupervisorAccount className="text-[1.4rem] hover:text-blue-900 cursor-pointer " />
           <Link href="/">
-            <span className="hover:text-blue-900 cursor-pointer">Login</span>
+            <span className="hover:text-blue-900 cursor-pointer ml-1">Login</span>
           </Link>
           <span> / </span>
           <Link href="/">
             <span className="hover:text-blue-900 cursor-pointer">Register</span>
           </Link>
         </p>
-        <IoMdSearch className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer" />
-        <MdOutlineShoppingCart className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer" />
-        <p className="text-sky-400 hover:text-blue-800 cursor-pointer">1</p>
-        <FaRegHeart className="text-[1.1rem] text-sky-400 hover:text-blue-800 cursor-pointer" />
-        <p className="text-sky-400 hover:text-blue-800 cursor-pointer">1</p>
+        <IoMdSearch className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex " />
+        <MdOutlineShoppingCart className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex " />
+        <p className="text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex ">1</p>
+        <FaRegHeart className="text-[1.1rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex " />
+        <p className="text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex ">1</p>
       </div>
 
       {/* Mobile hamburger icon */}
@@ -73,7 +73,7 @@ function Header() {
 
       {/* Mobile Navigation Menu */}
       <div
-        className={`sm:hidden ${isMenuOpen ? "block" : "hidden"} absolute top-20 left-0 right-0 bg-[#14213d] text-white py-4`}
+        className={`sm:hidden ${isMenuOpen ? "block" : "hidden"} absolute top-20 left-0 right-0 bg-[#14213d] text-white ml-5 py-4`}
         style={{ zIndex: 40 }} // Ensure menu appears above the header
       >
         <ol className="flex flex-col items-center">

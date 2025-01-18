@@ -1,3 +1,9 @@
+"use client"
+
+
+
+import React, { useState, useEffect } from 'react';
+
  import Link from "next/link"
  import { GoDotFill } from "react-icons/go";
  import { LuAlarmClock } from "react-icons/lu";
@@ -8,8 +14,43 @@ import Header_2 from "./component/header-2";
 import Footer from "./component/footer/page";
 
 
+type Product = {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+   discountedPrice:number;
+   title:string;
+   product:string;
+};
 
- function Home(){
+const Home = () => {
+  const [data, setData] = useState<Product[] | null>(null); // initialize as null
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        // Fetching data (replace with your actual data fetch)
+        const response = await fetch('https://template6-six.vercel.app/api/products'); 
+        const result = await response.json();
+        setData(result .slice(0, 12)); // Set the fetched data
+      } catch (err) {
+        setError('Failed to fetch products');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
+
   return(
     <main>
       <Header_1/> 
@@ -17,7 +58,7 @@ import Footer from "./component/footer/page";
       <div className="main-div w-full   h-[30rem] flex flex-col md:flex-row">
   <div className="picture h-[29rem] bg-[#00b4d8] ">
     <img
-      src="https://scontent.fkhi6-1.fna.fbcdn.net/v/t1.15752-9/467456273_562479099719060_7169677925994754884_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEnBRrd-kECVV38YUflXnuBSDUx_7WglUJINTH_taCVQjXg8thjCNl-ckEgZBFPcXwSUSeDai0zI55ooEr2iYf9&_nc_ohc=zIrsbXOEaQUQ7kNvgEnhJ8-&_nc_zt=23&_nc_ht=scontent.fkhi6-1.fna&oh=03_Q7cD1QGkovzWtc_4TPqUukDcOSbcvQbr16OcwBSbQTFgF5XZLw&oe=677CCC69"
+      src="heri-1.jpeg"
       alt="picture"
       className="absolute h-[30rem] w-full o"
     />
@@ -42,62 +83,58 @@ import Footer from "./component/footer/page";
 </div>
 
  {/* Section 2 */}
- <div className="section-2 mt-[3rem] px-4 md:px-10">
+ <div className="section-2 mt-[3rem]  text-center  px-4 md:px-10">
         <div className="content">
-          <h1 className="font-san font-bold text-[1.3rem] text-center md:text-left hover:text-blue-500 hover:font-serif">
+          <h1 className="font-san lg:ml-[30rem] ml-[2rem] font-bold text-[1.3rem] text-center md:text-left hover:text-blue-500 hover:font-serif">
             EDITORS PICK
           </h1>
-          <p className="text-gray-500 font-semibold text-center md:text-left hover:text-gray-800">
+          <p className="text-gray-500  lg:ml-[30rem] ml-[2rem] font-semibold text-center md:text-left hover:text-gray-800">
             Problems trying to resolve the conflict between
           </p>
         </div>
 
         {/* Cards */}
         <div className="flex flex-wrap justify-center gap-7 mt-6">
-          {/* Card 1 */}
-          <div className="relative">
-            <p className="bg-white absolute mt-[19.8rem] w-[6rem] h-7 pl-[1.6rem] ml-3 font-semibold hover:bg-blue-500 hover:text-gray-300">
-              MEN
-            </p>
-            <img
-              src="https://scontent.fkhi6-1.fna.fbcdn.net/v/t1.15752-9/462647694_1309893480426971_2191047771073654897_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeG2ZpeFmvrZ0TbhPiJT-OpHK7I-BSm3eoIrsj4FKbd6gk9XcQ020Xw2x8iKER91Gdmgsd9rta2CFt0yDGqea3Jh&_nc_ohc=mBgj8DzVMVIQ7kNvgFkzPNi&_nc_zt=23&_nc_ht=scontent.fkhi6-1.fna&oh=03_Q7cD1QHX4k9oRCHafVCprK3s-rCIHrEEIpWTadaxXlP-0mqE9w&oe=677CCFD2"
-              alt="Men Picture"
-              className="h-[22rem] w-[20rem] "
-            />
-          </div>
+ {/* Product 1 */}
+ <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-[50rem] ">
+        {Array.isArray(data) && data.length > 0 ? (
+          data.map((product) => (
+            <div
+              key={product._id}
+              className="bg-white shadow-lg rounded-lg overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+            >
+           
+              <img
+                src={product.imageUrl}
+                alt={product.name}
+                className="w-full h-64 object-cover "
+              />
+              <div className="p-4">
 
-          {/* Card 2 */}
-          <div className="relative">
-            <p className="bg-white absolute text-[0.9rem] pt-1 w-[6rem] h-7 pl-[1rem] ml-3 font-semibold mt-[19.8rem] hover:bg-blue-500 hover:text-gray-300">
-              WOMEN
-            </p>
-            <img
-              src="https://scontent.fkhi6-2.fna.fbcdn.net/v/t1.15752-9/462650111_1098996028390923_7407493782257211989_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFt0LnNEBmVhaI6N954VPcbr8Qqyz9zsj6vxCrLP3OyPpoLuzng-05w3UEFlL6x85mtypJbEEM6cbUgw01XQ3z4&_nc_ohc=pQrlxZ5oaysQ7kNvgF1Mc5V&_nc_zt=23&_nc_ht=scontent.fkhi6-2.fna&oh=03_Q7cD1QFlA95MJtHhXAQfwJPhoreTV62XfczNTcZzDBY-Zh-ioA&oe=677CD83E"
-              alt="Women Picture"
-              className="w-[10rem] h-[22rem] "
-            />
-          </div>
+                <p className="text-lg font-semibold mt-2">${product.price}</p>
+                <h2 className='text-lg font-semibold mt-2 hover:text-blue-800'>{product.title}</h2>
+                <h1 className='text-lg font-semibold mt-2'>{product.product} </h1>
 
-          {/* Card 3 */}
-          <div className="relative">
-            <p className="bg-white absolute text-[0.8rem] w-[8rem] h-7 pl-[1.5rem] ml-3 font-bold mt-[7.5rem] pt-1 hover:bg-blue-500 hover:text-gray-300">
-              ACCESSORIES
-            </p>
-            <img
-              src="https://scontent.fkhi6-2.fna.fbcdn.net/v/t1.15752-9/462572304_2266765420361467_6319357737227857792_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHUez0tjzRVFytk-Empz31HLK7ZOsgo4y0srtk6yCjjLaYGd2hF5DTn2Y6E2mbYBAIjRBfO_38M6hqzQr-V_w6E&_nc_ohc=ugYV43qd-U8Q7kNvgGPs0E2&_nc_zt=23&_nc_ht=scontent.fkhi6-2.fna&oh=03_Q7cD1QGuBOBbdr01K3YCRdR7PJtHRjl686KH-EEdCwouOT8bKw&oe=677CD651"
-              alt="Accessories Picture"
-              className="w-[13rem] h-[10rem] "
-            />
-            <p className="bg-white absolute text-[0.8rem] w-[4rem] h-7 pl-[1rem] ml-3 font-bold mt-[9rem] pt-1 hover:bg-blue-500 hover:text-gray-300">
-              KIDS
-            </p>
-            <img
-              src="fixed-height (1).png"
-              alt="Kids Picture"
-              className="w-[13rem]  mt-3 h-[11rem] "
-            />
-          </div>
-        </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No products available.</p>
+        )}
+      </div> 
+  </div>
+
+
+
+
+
+
+
+
+
+
+          
+          
       </div>
 
 
@@ -111,176 +148,36 @@ import Footer from "./component/footer/page";
   </div>
 
   {/* Product Grid */}
-  <div className="main-of-product lg:ml-[16rem] flex flex-wrap gap-4 text-center justify-center mt-[3rem] px-4 sm:w-full md:w-[60rem] lg:w-[50rem]">
+  <div className="main-of-product lg:ml-[0.1rem] flex flex-wrap gap-4 text-center justify-center mt-[3rem] px-4 sm:w-full md:w-[80rem] lg:w-[80rem]">
     
     {/* Product 1 */}
-    <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src="https://scontent.fkhi6-1.fna.fbcdn.net/v/t1.15752-9/462637144_991007036396872_2825183210880074773_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHsX2lMhKidrHBzHDESTDt41laV7ZIDfi_WVpXtkgN-L3YMIMDcuLlazM_PkHDMjHsH4ZRoUgcCoLxgv8o7HV91&_nc_ohc=RkZZ_kvgdDcQ7kNvgGYSjjR&_nc_zt=23&_nc_ht=scontent.fkhi6-1.fna&oh=03_Q7cD1QGFMoctUuGSd1o_6glGki8DP3F3p-nVgCmJxPlblPD6ew&oe=677CC61B" alt="product-image" className="w-full h-[15rem] " />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
-
-    {/* Product 2 */}
-    <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src="https://scontent.fkhi6-1.fna.fbcdn.net/v/t1.15752-9/462648971_588607990384016_488281950584423643_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEW6N4doB08yA1ImgL0royeWjKM52q6O99aMoznaro7314GI4rlqPS2NdNc_35xkxHljvJ5udpcdNqCgj-wefg_&_nc_ohc=WeiZKawTTLwQ7kNvgGuDhcY&_nc_zt=23&_nc_ht=scontent.fkhi6-1.fna&oh=03_Q7cD1QGgE4HrLBzdcOLYV1SK2xtaAP63Iavy72_s2AJVxhbf7w&oe=677CC3C6" alt="product-image" className="w-full h-[15rem] object-cover" />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
-
-    {/* Product 3 */}
-    <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src="https://scontent.fkhi6-2.fna.fbcdn.net/v/t1.15752-9/465100468_1013826273841117_4792173748404192126_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGkbltvaiZAbfg40dLverYYN546WsbMGVw3njpaxswZXA3Aw0TzEHTGkcQowLgrHnIoDxsjh-k5nq-NA9iDkyXU&_nc_ohc=TcxpRJFPRscQ7kNvgG4Lisr&_nc_zt=23&_nc_ht=scontent.fkhi6-2.fna&oh=03_Q7cD1QHP7bYP1_jywEf4YX3JwvHDWMzxvRXNt4zCxrjL1J6MYA&oe=677CBF23" alt="product-image" className="w-full h-[15rem] object-cover" />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
-
- {/* Product 4 */}
- <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src= "product-cover-5.png" alt="product-image" className="w-full h-[15rem] " />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
-
- {/* Product 5 */}
- <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src="product-cover-5 (7).png" alt="product-image" className="w-full h-[15rem] object-cover" />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
-     {/* Product 6 */}
-     <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src="product-cover-5 (5).png" alt="product-image" className="w-full h-[15rem] object-cover" />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
-     {/* Product 7 */}
-     <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src="fixed-height (1).png" alt="product-image" className="w-full h-[15rem] object-cover" />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
-     {/* Product 8 */}
-     <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src="card-1 (2).png" alt="product-image" className="w-full h-[15rem] object-cover" />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
-     {/* Product 9 */}
-     <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src="fixed-height.png" alt="product-image" className="w-full h-[15rem] object-cover" />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
-     {/* Product 10 */}
-     <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src="fixed-height (3).png" alt="product-image" className="w-full h-[15rem] object-cover" />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
-     {/* Product 11 */}
-     <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src="fixed-height (5).png" alt="product-image" className="w-full h-[15rem] object-cover" />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
-     {/* Product 12 */}
-     <div className="w-full sm:w-[45%] md:w-[22%] lg:w-[20%]">
-      <img src="product-cover-5 (6).png" alt="product-image" className="w-full h-[15rem] object-cover" />
-      <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
-      <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] text-center mt-2">English Department</p>
-      <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
-      <p className="ml-[2rem] flex ">
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-        <GoDotFill className="text-[1.2rem] text-green-600"/>
-        <GoDotFill className="text-[1.2rem] text-orange-400"/>
-        <GoDotFill className="text-[1.2rem] text-blue-400"/>
-      </p>
-    </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-[50rem] ">
+        {Array.isArray(data) && data.length > 0 ? (
+          data.map((product) => (
+            <div
+              key={product._id}
+              className="bg-white shadow-lg rounded-lg overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105 "
+            >
+              <img
+                src={product.imageUrl}
+                alt={product.name}
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-4">
+                <h1 className="text-xl font-bold">{product.name}</h1> {/* Product Name */}
+                <p className="text-lg font-semibold mt-2">${product.price}</p>
+                <h2 className='text-lg font-semibold mt-2 hover:text-blue-800'>{product.title}</h2>
 
 
 
-
-
-
-
-    
+                
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No products available.</p>
+        )}
+      </div> 
   </div>
 </div>
 

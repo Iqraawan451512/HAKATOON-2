@@ -23,7 +23,7 @@ function Pages(){
 {/****header section */}
 <div className="div-nav">
       {/* Navigation Container */}
-      <ul className="flex  lg:ml-[15rem]  md:flex-row md:justify-between gap-8 md:gap-2 font-bold mt-12 px-4">
+      <ul className="flex  lg:ml-[15rem]  md:flex-row md:justify-between  gap-2 md:gap-2 font-bold mt-12 px-4">
 
         {/* Brand Name */}
         <Link href="/">
@@ -33,14 +33,14 @@ function Pages(){
         </Link>
 
         {/* Hamburger Icon - Visible only on small screens */}
-        <div className="md:hidden flex md:ml-[10rem]">
-          <button onClick={toggleMenu} className="text-gray-800">
+        <div className="md:hidden flex md:ml-[15rem]">
+          <button onClick={toggleMenu} className="text-gray-800 ">
             {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />} {/* Toggle between hamburger and close icon */}
           </button>
         </div>
 
         {/* Navigation Links */}
-        <div className={`flex lg:flex-col md:flex-col gap-4 md:gap-8 mt-4 md:mt-0  ${isMenuOpen ? 'block' : 'hidden md:block'}`}>
+        <div className={`flex lg:flex-col md:flex-col gap-4 md:gap-8 mt-4 md:mt-0  ${isMenuOpen ? 'block' : 'hidden md:block'} `}>
          <ul className="flex gap-4 ">
           <Link href="/shop-2">
             <li className="text-slate-500 text-sm hover:text-blue-400 cursor-pointer">
@@ -68,7 +68,7 @@ function Pages(){
         {/* Login and Membership Button */}
         <div className=" lg:flex md:block hidden flex-col md:flex-row gap-4 mt-2 md:mt-0">
           <Link href="/login">
-            <li className="text-blue-400 text-sm hover:text-slate-400 cursor-pointer">
+            <li className="text-blue-400 text-sm hover:text-slate-400  md:mt-4 cursor-pointer">
               Login
             </li>
           </Link>
