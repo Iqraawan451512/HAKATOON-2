@@ -15,16 +15,15 @@ function Shop() {
             <div className="div-one">
                 <div className="shop-one-div">
                     <div className="content flex flex-col md:flex-row gap-4 md:gap-[30rem] h-[4rem] bg-gray-100">
-                        <h1 className="font-bold mx-auto md:ml-[10.5rem] mt-5">Shop</h1>
+                        <Link href={"/shopNow"}><h1 className="font-bold mx-auto lg:justify-between md:ml-[10.5rem] mt-5">Shop</h1></Link>
                         <ul className="flex mt-6 justify-center md:justify-start">
                             <Link href="/" target="_blank">
-                                <li className="flex font-sans  text-[0.8rem] font-semibold">
+                                <li className="flex font-sans lg:ml-[20rem] text-[0.8rem] font-semibold">
                                     Home
                                     <FaAngleRight className="mt-[0.5em] ml-[0.7rem]" />
                                 </li>
                             </Link>
-                            <Link href="/shop">
-                                <li className="flex font-sans text-[0.8rem] mt-[0.1rem] ml-[0.4rem] font-bold text-gray-400">Shop</li>
+                            <Link href={"/shopNow"}><li className="flex font-sans text-[0.8rem] mt-[0.1rem] ml-[0.4rem] font-bold text-gray-400">Shop</li>
                             </Link>
                         </ul>
                     </div>
@@ -33,23 +32,23 @@ function Shop() {
                     <div className="shop-card flex flex-wrap gap-5 bg-gray-100 justify-center">
     {/* Card 1 */}
     <div className="card h-[12rem] sm:w-[8rem] md:w-[10rem] lg:w-[12rem]">
-        <img src="card-item (2).png" alt="picture" className="h-full w-full hover:translate-y-4 object-cover" />
+    <Link href={"/shopNow"}>    <img src="card-item (2).png" alt="picture" className="h-full w-full hover:translate-y-4 object-cover" /></Link>
     </div>
     {/* Card 2 */}
     <div className="card h-[12rem] sm:w-[8rem] md:w-[10rem] lg:w-[12rem]">
-        <img src="col-md-4 (1).png" alt="picture" className="h-full w-full hover:translate-y-4 object-cover" />
+    <Link href={"/shopNow"}> <img src="col-md-4 (1).png" alt="picture" className="h-full w-full hover:translate-y-4 object-cover" /></Link>
     </div>
     {/* Card 3 */}
     <div className="card h-[12rem] sm:w-[8rem] md:w-[10rem] lg:w-[12rem]">
-        <img src="col-md-4 (2).png" alt="picture" className="h-full w-full hover:translate-y-4 object-cover" />
+    <Link href={"/shopNow"}>  <img src="col-md-4 (2).png" alt="picture" className="h-full w-full hover:translate-y-4 object-cover" /></Link>
     </div>
     {/* Card 4 */}
     <div className="card h-[12rem] sm:w-[8rem] md:w-[10rem] lg:w-[12rem]">
-        <img src="card-item (1).png" alt="picture" className="h-full w-full object-cover hover:translate-y-4" />
+    <Link href={"/shopNow"}>  <img src="card-item (1).png" alt="picture" className="h-full w-full object-cover hover:translate-y-4" /></Link>
     </div>
     {/* Card 5 */}
     <div className="card h-[12rem] sm:w-[8rem] md:w-[10rem] lg:w-[12rem]">
-        <img src="card-item.png" alt="picture" className="h-full w-full object-cover hover:translate-y-4" />
+    <Link href={"/shopNow"}>  <img src="card-item.png" alt="picture" className="h-full w-full object-cover hover:translate-y-4" /></Link>
     </div>
 </div>
 
@@ -59,7 +58,7 @@ function Shop() {
             {/* Section 2: Filter and View Options */}
             <div className="div-two mt-[3rem] ">
                 <ul className="flex   text-[0.8rem] text-extrabold text-gray-600 font-serif gap-[5rem] md:gap-[17rem] mx-auto justify-center">
-                    <li className="hover:text-blue-800">showing all 12 products</li>
+                <Link href={"/shopNow"}><li className="hover:text-blue-800">showing all 12 products</li></Link>
                     <li className="flex">
                         views:
                         <AiFillAppstore className="text-[0.8rem] mt-[0.2rem] hover:text-blue-800 ml-2 h-[1rem] p-[0.2rem] w-[1rem] bg-slate-50" />
@@ -87,7 +86,7 @@ function Shop() {
             <div className="main-of-product flex flex-wrap md:w-[60rem] md:ml-[10rem] justify-center gap-4 mt-[3rem]">
                 {/* Product 1 */}
                 <div className="product text-center">
-                    <img src="product-cover-5 (4).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
+                <Link href={"/shopNow"}> <img src="product-cover-5 (4).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" /></Link>
                     <p className="font-sans text-gray-black text-[0.8rem] font-bold mt-3">Grafic Design</p>
                     <p className="text-[#6c757d] font-sans font-semibold text-[0.9rem] mt-2">English Department</p>
                     <p className="font-mono font-bold text-[0.8rem] mt-[0.3rem] text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
@@ -101,7 +100,7 @@ function Shop() {
                 
 {/**product-2 */}
 <div className="">
-  <img src="product-cover-5 (5).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
+<Link href={"/shopNow"}> <img src="product-cover-5 (5).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" /></Link>
 
 <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
 <p className=" text-[#6c757d] font-sans font-semibold text-[0.9rem]  text-center mt-2">English Department</p>
@@ -114,7 +113,7 @@ function Shop() {
 
 {/**product-3 */}
 <div className="">
-  <img src="Product card.png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
+<Link href={"/shopNow"}><img src="Product card.png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" /></Link>
 
 <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
 <p className=" text-[#6c757d] font-sans font-semibold text-[0.9rem]  text-center mt-2">English Department</p>
@@ -125,7 +124,7 @@ function Shop() {
 </div>
 {/**product-4 */}
 <div className="">
-  <img src="product-cover-5.png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
+<Link href={"/ShopNow"}> <img src="product-cover-5.png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" /></Link>
 
 <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
 <p className=" text-[#6c757d] font-sans font-semibold text-[0.9rem]  text-center mt-2">English Department</p>
@@ -137,7 +136,7 @@ function Shop() {
 
 {/**product-5 */}
 <div className="">
-  <img src="product-cover-5 (7).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
+<Link href={"/shopNow"}> <img src="product-cover-5 (7).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" /></Link>
 
 <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
 <p className=" text-[#6c757d] font-sans font-semibold text-[0.9rem]  text-center mt-2">English Department</p>
@@ -150,7 +149,7 @@ function Shop() {
 
 {/**product-6 */}
 <div className="">
-  <img src="fixed-height (1).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
+<Link href={"/shopNow"}>  <img src="fixed-height (1).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" /></Link>
 
 <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
 <p className=" text-[#6c757d] font-sans font-semibold text-[0.9rem]  text-center mt-2">English Department</p>
@@ -162,7 +161,7 @@ function Shop() {
 
 {/**product-7 */}
 <div className="">
-  <img src="product-cover-5 (3).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
+<Link href={"/shopNow"}> <img src="product-cover-5 (3).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" /></Link>
 
 <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
 <p className=" text-[#6c757d] font-sans font-semibold text-[0.9rem]  text-center mt-2">English Department</p>
@@ -173,7 +172,7 @@ function Shop() {
 </div>
 {/**product-8 */}
 <div className="">
-  <img src="fixed-height.png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
+<Link href={"/shopNow"}> <img src="fixed-height.png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" /></Link>
 
 <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
 <p className=" text-[#6c757d] font-sans font-semibold text-[0.9rem]  text-center mt-2">English Department</p>
@@ -184,7 +183,7 @@ function Shop() {
 </div>
 {/**product-9 */}
 <div className="">
-  <img src= "https://scontent.fkhi22-1.fna.fbcdn.net/v/t1.15752-9/462582257_1117896486631297_8330484492524790447_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGKrClweiUEk_NAQr-923_nhggm0Wf3rq2GCCbRZ_eurZkX3bWIZJHnhPOw1NXknqfpRo0Ziz2Dfexm0h5oJUIb&_nc_ohc=nuTYhtuQ1M4Q7kNvgEXAqFl&_nc_zt=23&_nc_ht=scontent.fkhi22-1.fna&oh=03_Q7cD1QEBxa4IeQF-78aZ0CDD4Zb2SzGlXIvseygkafO6fbmNzw&oe=677D0185"
+  <img src= "card.png"
  alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
 
 <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
@@ -196,7 +195,7 @@ function Shop() {
 </div>
 {/**product-10 */}
 <div className="">
-  <img src="fixed-height (3).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
+ <Link href={"shopNow"}> <img src="fixed-height (3).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" /></Link>
 
 <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
 <p className=" text-[#6c757d] font-sans font-semibold text-[0.9rem]  text-center mt-2">English Department</p>
@@ -207,7 +206,7 @@ function Shop() {
 </div>
 {/**product-11 */}
 <div className="">
-  <img src="fixed-height (5).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
+<Link href={"shopNow"}> <img src="fixed-height (5).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" /></Link>
 
 <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
 <p className=" text-[#6c757d] font-sans font-semibold text-[0.9rem]  text-center mt-2">English Department</p>
@@ -218,7 +217,7 @@ function Shop() {
 </div>
 {/**product-12 */}
 <div className="">
-  <img src="product-cover-5 (6).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" />
+<Link href={"shopNow"}> <img src="product-cover-5 (6).png" alt="product-image" className="w-[12rem] h-[12rem] hover:translate-y-4" /></Link>
 
 <p className="font-sans text-gray-black text-[0.8rem] font-bold text-center mt-3">Grafic Dseign</p>
 <p className=" text-[#6c757d] font-sans font-semibold text-[0.9rem]  text-center mt-2">English Department</p>

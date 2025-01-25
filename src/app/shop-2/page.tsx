@@ -33,9 +33,10 @@ function Shop_2(){
           </li>
 
           {/* Current Page (Shop) */}
-          <li className="flex items-center font-sans text-sm font-bold text-gray-400">
+        <Link href={"./shopNow"}>  <li className="flex items-center font-sans text-sm font-bold text-gray-400">
             Shop
           </li>
+          </Link>
         </ul>
       </div>
     </div>
@@ -79,10 +80,10 @@ function Shop_2(){
 
         {/* Select Value and Action Buttons */}
         <p className="flex flex-row sm:flex-row pt-5 gap-2 sm:gap-4 sm:w-24 md:w-40 lg:w-48">
-    <select defaultValue="option" className="w-full sm:w-24 md:w-40 lg:w-48 h-10 pl-2 hover:bg-slate-300 hover:text-blue-400 bg-blue-400 text-sm font-semibold font-sans rounded text-slate-100">
+        <select defaultValue="option" className="w-full sm:w-24 md:w-40 lg:w-48 h-10 pl-2 hover:bg-slate-300 hover:text-blue-400 bg-blue-400 text-sm font-semibold font-sans rounded text-slate-100">
         <option className="bg-slate-50 text-slate-600">Select Value</option>
         <option className="bg-slate-50 text-slate-500">Cash</option>
-        <option className="bg-slate-50 text-slate-500">Add To Card</option>
+      <option className="bg-slate-50 text-slate-500">Add To Card</option>
     </select>
 
     
@@ -110,7 +111,7 @@ function Shop_2(){
 <div className="div-3 flex gap-5  md:ml-[30rem] text-sm font-sans text-slate-500 px-4 py-2">
     <h1 className="hover:text-blue-900 hover:font-semibold">Description</h1>
     <h2 className="hover:text-blue-900 hover:font-semibold">Additional Information</h2>
-    <h2 className="hover:text-blue-900 hover:font-semibold">Reviews <span className="text-green-900 font-bold">(0)</span></h2>
+  <Link href={"/reviews"}>  <h2 className="hover:text-blue-900 hover:font-semibold">Reviews <span className="text-green-900 font-bold">(0)</span></h2></Link>
 </div>
 
 {/**section 4 */}
@@ -216,7 +217,7 @@ function Shop_2(){
     <div className="main-of-product flex flex-wrap justify-center gap-6 px-4 py-8  md:ml-[5rem]">
         {/**product-1 */}
         <div className="product-1 bg-white w-full sm:w-1/2 md:w-[15rem] xl:w-[15rem]">
-            <img src="plate-1.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" />
+         <Link href={"/shopNow"}><img src="plate-1.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" /></Link>
             <p className="font-sans text-gray-black text-sm font-bold text-center mt-3">Grafic Design</p>
             <p className="text-[#6c757d] font-sans font-semibold text-sm text-center mt-2">English Department</p>
             <p className="font-mono font-bold text-sm mt-2 text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
@@ -224,7 +225,7 @@ function Shop_2(){
         
         {/**product-2 */}
         <div className="product-2 bg-white w-full sm:w-1/2 md:w-[15rem] xl:w-[15rem]">
-            <img src="cups-2.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" />
+        <Link href={"/shopNow"}>  <img src="cups-2.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" /></Link>
             <p className="font-sans text-gray-black text-sm font-bold text-center mt-3">Grafic Design</p>
             <p className="text-[#6c757d] font-sans font-semibold text-sm text-center mt-2">English Department</p>
             <p className="font-mono font-bold text-sm mt-2 text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
@@ -234,42 +235,42 @@ function Shop_2(){
 
 {/**product-3 */}
 <div className="product-1 bg-white w-full sm:w-1/2 md:w-[14rem] xl:w-[15rem]">
-            <img src="plate-5.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" />
+<Link href={"/shopNow"}>   <img src="plate-5.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" /></Link>
             <p className="font-sans text-gray-black text-sm font-bold text-center mt-3">Grafic Design</p>
             <p className="text-[#6c757d] font-sans font-semibold text-sm text-center mt-2">English Department</p>
             <p className="font-mono font-bold text-sm mt-2 text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
         </div>
         {/**product-4 */}
         <div className="product-1 bg-white w-full sm:w-1/2 md:w-[15rem] xl:w-[15rem]">
-            <img src="cups-4.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" />
+        <Link href={"/shopNow"}>  <img src="cups-4.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" /></Link>
             <p className="font-sans text-gray-black text-sm font-bold text-center mt-3">Grafic Design</p>
             <p className="text-[#6c757d] font-sans font-semibold text-sm text-center mt-2">English Department</p>
             <p className="font-mono font-bold text-sm mt-2 text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
         </div>
         {/**product-5 */}
         <div className="product-1 bg-white w-full sm:w-1/2 md:w-[15rem] xl:w-[15rem]">
-            <img src="plate-5.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" />
+        <Link href={"/shopNow"}>   <img src="plate-5.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" /></Link>
             <p className="font-sans text-gray-black text-sm font-bold text-center mt-3">Grafic Design</p>
             <p className="text-[#6c757d] font-sans font-semibold text-sm text-center mt-2">English Department</p>
             <p className="font-mono font-bold text-sm mt-2 text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
         </div>
         {/**product-6 */}
         <div className="product-1 bg-white w-full sm:w-1/2 md:w-[15rem] xl:w-[15rem]">
-            <img src="chair.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" />
+         <Link href={"shopNow"} >  <img src="chair.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" /></Link>
             <p className="font-sans text-gray-black text-sm font-bold text-center mt-3">Grafic Design</p>
             <p className="text-[#6c757d] font-sans font-semibold text-sm text-center mt-2">English Department</p>
             <p className="font-mono font-bold text-sm mt-2 text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
         </div>
         {/**product-7 */}
         <div className="product-1 bg-white w-full sm:w-1/2 md:w-[15rem] xl:w-[15rem]">
-            <img src="plate-1.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" />
+        <Link href={"/shopNow"}>    <img src="plate-1.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" /></Link>
             <p className="font-sans text-gray-black text-sm font-bold text-center mt-3">Grafic Design</p>
             <p className="text-[#6c757d] font-sans font-semibold text-sm text-center mt-2">English Department</p>
             <p className="font-mono font-bold text-sm mt-2 text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>
         </div>
         {/**product-8 */}
         <div className="product-1 bg-white w-full sm:w-1/2 md:w-[15rem] xl:w-[15rem]">
-            <img src="cups-2.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" />
+        <Link href={"/shopNow"}> <img src="cups-2.png" alt="product-image" className="w-full h-[12rem] object-cover hover:translate-x-2 hover:translate-y-2" /></Link>
             <p className="font-sans text-gray-black text-sm font-bold text-center mt-3">Grafic Design</p>
             <p className="text-[#6c757d] font-sans font-semibold text-sm text-center mt-2">English Department</p>
             <p className="font-mono font-bold text-sm mt-2 text-center text-gray-400">$16.48 <span className="text-green-600">$6.48</span></p>

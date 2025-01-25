@@ -6,6 +6,7 @@ import { FaYoutube } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoTwitter } from "react-icons/io5";
 import { useState } from "react"; // Import useState to toggle the menu
+import { Link } from "sanity/router";
 
 function Header_1() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage menu visibility
@@ -34,7 +35,7 @@ function Header_1() {
           {/* Center Section: Promotional Message */}
           <div className="text-center sm:text-left text-xs sm:text-sm mb-3 sm:mb-0">
             <span className="block sm:inline-block text-white hover:text-slate-500">
-              Follow Us <span className="ml-[1rem]"> and get a chance to Win 80% off</span> 
+              Follow Us<span className="ml-[1rem]">  and get a chance to Win 80% off </span> 
             </span>
           </div>
 

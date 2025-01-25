@@ -1,26 +1,77 @@
-"use client"
-import { useState } from "react";
-import Link from "next/link";
-import { FaRegHeart } from "react-icons/fa";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { IoMdSearch } from "react-icons/io";
-import { MdSupervisorAccount } from "react-icons/md";
+"use client";
+import React, { useState } from 'react'; 
+import Link from 'next/link';
+import { FaRegHeart } from 'react-icons/fa';
+import { MdOutlineShoppingCart } from 'react-icons/md';
+import { IoMdSearch } from 'react-icons/io';
+import { MdSupervisorAccount } from 'react-icons/md';
+import ShoppingCartModal from './ShoppingCartModal'; 
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [isCartOpen, setIsCartOpen] = useState(false); 
+  const [cartItems, setCartItems] = useState<any[]>([]); 
+  const [isRegisterCardOpen, setIsRegisterCardOpen] = useState(false); 
+
+  const [name, setName] = useState(""); 
+  const [email, setEmail] = useState(""); 
+  const [password, setPassword] = useState(""); 
+
+  const[state_count , setCount]=useState(5)
+
+  let count=0;
+  function handleClick(){
+setCount(state_count+1)  
+setCount(state_count+1)  
+setCount(state_count+1)  
+setCount(state_count+1)  
+
+
+
+
+  } 
+
+
+
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen); // Toggle mobile menu visibility
+    setIsMenuOpen(!isMenuOpen); 
+  };
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen); 
+  };
+
+  const addToCart = (product: any) => {
+    setCartItems([...cartItems, product]);
+  };
+
+
+  const handleRegisterClick = () => {
+    setIsRegisterCardOpen(true);
+  };
+
+  const closeRegisterCard = () => {
+    setIsRegisterCardOpen(false);
+  };
+
+  const handleRegisterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Registration Info:", { name, email, password });
+
+    setName("");
+    setEmail("");
+    setPassword("");
+
+    setIsRegisterCardOpen(false);
   };
 
   return (
-    <nav className="bg-white flex items-center h-[5rem] gap-10 border-b border-[#e5e5e5] px-4  top-10 left-0 right-0">
-      {/* Logo */}
+    <nav className="bg-white flex items-center h-[5rem] gap-10 border-b border-[#e5e5e5] px-4 top-10 left-0 right-0">
       <h1 className="logo font-sans font-bold text-[1.6rem] ml-[1rem] md:ml-[4rem] text-[#003049] hover:text-blue-400 cursor-pointer">
         Bandage
       </h1>
 
-      {/* Desktop and tablet navigation */}
       <ol className="hidden md:ml-[15rem] sm:flex gap-5 font-serif text-[1rem]">
         <Link href="/">
           <li className="text-gray-400 hover:text-blue-800 font-semibold">Home</li>
@@ -42,23 +93,41 @@ function Header() {
         </Link>
       </ol>
 
-      {/* Desktop login / register and icons */}
-      <div className="  flex flex-row gap-3 ">
+      <div className="flex flex-row gap-3">
         <p className="flex font-bold text-sky-400">
-          <MdSupervisorAccount className="text-[1.4rem] hover:text-blue-900 cursor-pointer " />
-          <Link href="/">
-            <span className="hover:text-blue-900 cursor-pointer ml-1">Login</span>
-          </Link>
+          <MdSupervisorAccount className="text-[1.4rem] hover:text-blue-900 cursor-pointer" />
+
+          {/* Login Button */}
+          <Link href={"/login"}>
+          < span
+            className="hover:text-blue-900 text-blue-400 cursor-pointer ml-1"
+          >
+            Login
+          </span></Link>
           <span> / </span>
-          <Link href="/">
-            <span className="hover:text-blue-900 cursor-pointer">Register</span>
-          </Link>
+          {/* Register Button */}
+          <span 
+            onClick={handleRegisterClick} 
+            className="hover:text-blue-900 cursor-pointer"
+          >
+            Register
+          </span>
         </p>
         <IoMdSearch className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex " />
-        <MdOutlineShoppingCart className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex " />
-        <p className="text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex ">1</p>
-        <FaRegHeart className="text-[1.1rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex " />
-        <p className="text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex ">1</p>
+                 <MdOutlineShoppingCart
+          onClick={toggleCart}
+          className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex "
+        />
+        <p className="text-sky-400 hover:text-blue-800 cursor-pointer  hidden sm:flex ">{cartItems.length}</p>
+
+
+        
+
+        <button  onClick={handleClick}>
+          <FaRegHeart className="text-[1.1rem] text-sky-400 hover:text-blue-800  cursor-pointer hidden sm:flex " />
+          </button>
+        
+        <p className="text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex ">{state_count}</p>
       </div>
 
       {/* Mobile hamburger icon */}
@@ -73,8 +142,8 @@ function Header() {
 
       {/* Mobile Navigation Menu */}
       <div
-        className={`sm:hidden ${isMenuOpen ? "block" : "hidden"} absolute top-20 left-0 right-0 bg-[#14213d] text-white ml-5 py-4`}
-        style={{ zIndex: 40 }} // Ensure menu appears above the header
+        className={`sm:hidden ${isMenuOpen ? 'block' : 'hidden'} absolute top-20 left-0 right-0 bg-[#14213d] text-white ml-5 py-4`}
+        style={{ zIndex: 40 }} 
       >
         <ol className="flex flex-col items-center">
           <Link href="/">
@@ -97,6 +166,80 @@ function Header() {
           </Link>
         </ol>
       </div>
+
+      {/* Cart Modal - Shows Cart Items */}
+      {isCartOpen && (
+        <ShoppingCartModal
+          cartItems={cartItems}
+          setIsCartOpen={setIsCartOpen}
+          setCartItems={setCartItems}
+        />
+      )}
+
+      {/* Register Modal */}
+      {isRegisterCardOpen && (
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+            <h2 className="text-xl font-semibold text-center mb-2">Register</h2>
+            <form onSubmit={handleRegisterSubmit}>
+              <div className="mb-4">
+                <label className="block text-gray-700" htmlFor="name">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700" htmlFor="password">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                  placeholder="Enter your password"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              >
+                Register
+              </button>
+            </form>
+            <button
+              onClick={closeRegisterCard}
+              className="w-full mt-2 py-2 px-4 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+     
+     
     </nav>
   );
 }

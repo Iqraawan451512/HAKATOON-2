@@ -13,17 +13,53 @@ import Footer from "../component/footer/page";
 import { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi'; // For Hamburger and Close icon
 
-
+  
 
 
 
 
 function  Contact(){
         const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle the menu
+
+
+        const [isRegisterCardOpen, setIsRegisterCardOpen] = useState(false); 
+
+        const [name, setName] = useState(""); 
+        const [email, setEmail] = useState(""); 
+        const [password, setPassword] = useState(""); 
+      
+
+
       
         const toggleMenu = () => {
           setIsMenuOpen(!isMenuOpen); // Toggle the menu state
         };
+
+
+
+
+  const handleRegisterClick = () => {
+    setIsRegisterCardOpen(true);
+  };
+
+  const closeRegisterCard = () => {
+    setIsRegisterCardOpen(false);
+  };
+
+  const handleRegisterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Registration Info:", { name, email, password });
+
+    setName("");
+    setEmail("");
+    setPassword("");
+
+    setIsRegisterCardOpen(false);
+  };
+
+
+
+
 
 
 
@@ -81,16 +117,18 @@ function  Contact(){
         {/* Login and Membership Button */}
         <div className=" lg:flex md:block hidden flex-col md:flex-row gap-4 mt-2 md:mt-0">
           <Link href="/login">
-            <li className="text-blue-400 text-sm hover:text-slate-400 cursor-pointer">
+            <li className="text-blue-400 text-sm mt-4 hover:text-slate-400 cursor-pointer">
               Login
             </li>
           </Link>
           <li>
-            <button className="  lg:flex  md:block hidden items-center justify-center w-[10rem] h-[3rem] rounded bg-blue-400 text-white font-semibold hover:bg-slate-500 hover:text-slate-200">
+            <button  onClick={handleRegisterClick} 
+             className="  lg:flex  md:block hidden items-center justify-center w-[10rem] h-[3rem] rounded bg-blue-400 text-white font-semibold hover:bg-slate-500 hover:text-slate-200">
               Become a member
               <FaArrowRight className="ml-2 text-sm" />
             </button>
           </li>
+          
         </div>
 
       </ul>
@@ -172,6 +210,79 @@ function  Contact(){
  </div>
 
 </div>
+
+
+
+{/* Register Modal */}
+{isRegisterCardOpen && (
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+          <h2 className="text-xl font-semibold text-center mb-2">Want to Become a Member</h2>
+
+            <h2 className="text-xl font-semibold text-center mb-2">Register Now</h2>
+            <form onSubmit={handleRegisterSubmit}>
+              <div className="mb-4">
+                <label className="block text-gray-700" htmlFor="name">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700" htmlFor="password">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                  placeholder="Enter your password"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              >
+                Register 
+              </button>
+            </form>
+            <button
+              onClick={closeRegisterCard}
+              className="w-full mt-2 py-2 px-4 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+
+
+
+
+
+
 
 
 

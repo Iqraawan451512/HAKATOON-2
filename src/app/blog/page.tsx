@@ -6,6 +6,7 @@ import Footer from "../component/footer/page";
 import { GoDotFill } from "react-icons/go";
 import { TiTick } from "react-icons/ti";
 import { FiToggleLeft } from "react-icons/fi";
+import Link from "next/link";
 
 function Blog() {
     return (
@@ -179,7 +180,7 @@ function Blog() {
             {/* Section 2: Filter and View Options */}
             <div className="div-two mt-[3rem] ">
                 <ul className="flex   text-[0.8rem] text-extrabold text-gray-600 font-serif gap-[5rem] md:gap-[17rem] mx-auto justify-center">
-                    <li className="hover:text-blue-800">showing all 12 products</li>
+                 <Link href={"./shopNow"} >  <li className="hover:text-blue-800">showing all 12 products</li></Link>
                     <li className="flex">
                         views:
                         <AiFillAppstore className="text-[0.8rem] mt-[0.2rem] hover:text-blue-800 ml-2 h-[1rem] p-[0.2rem] w-[1rem] bg-slate-50" />

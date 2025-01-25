@@ -11,6 +11,7 @@ import { FaLinkedin } from "react-icons/fa6";
 import Footer from "../component/footer/page";
 import { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi'; // For Hamburger and Close icon
+import Shop from "../shop/page";
 function Pages(){
     const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle the menu
           
@@ -117,7 +118,7 @@ function Pages(){
 
   {/* Smaller images container */}
   <div className="div-two w-full lg:w-[50%] flex flex-wrap gap-4 justify-center mt-4 lg:mt-0">
-    <img 
+         <img 
       src="card-1 (9).png" 
       alt="picture-1" 
       className="w-[100%] sm:w-[17rem] hover:rounded-[5rem] hover:border-[0.2rem] hover:border-blue-600 transition-all"
@@ -136,7 +137,7 @@ function Pages(){
       src="card-1 (2).png" 
       alt="picture-4" 
       className="w-[100%] sm:w-[17rem] hover:rounded-[5rem] hover:border-[0.2rem] hover:border-blue-600 transition-all"
-    />
+    /> 
   </div>
 </div>
 
