@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { IoMdSearch } from "react-icons/io";
 import { MdSupervisorAccount } from "react-icons/md";
 import ShoppingCartModal from "./ShoppingCartModal";
 
