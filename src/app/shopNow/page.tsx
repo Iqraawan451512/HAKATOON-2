@@ -131,32 +131,7 @@ const ShopNow = () => {
     }
   };
 
-  // Function to create label from selected rate
-  const handleCreateLabel = async () => {
-    if (!rateId) {
-      alert("Please select a rate to create a label.");
-    }
-
-    setLoading(true);
-    setErrors([]);
-
-    try {
-      const response = await axios.post("/api/shipengine/label", { rateId: rateId });
-      const labelData = response.data;
-      console.log(labelData);
-      setLabelPdf(labelData.labelDownload.href);
-      setTrackingObj({
-        trackingNumber: labelData.trackingNumber,
-        labelId: labelData.labelId,
-        carrierCode: labelData.carrierCode,
-      });
-    } catch (error) {
-      console.log(error);
-      setErrors(["An error occurred while creating the label."]);
-    } finally {
-      setLoading(false);
-    }
-  };
+ 
 
   return (
     <main>

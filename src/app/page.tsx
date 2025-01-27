@@ -5,7 +5,6 @@
 import React, { useState, useEffect } from 'react';
 
  import Link from "next/link"
- import { GoDotFill } from "react-icons/go";
  import { LuAlarmClock } from "react-icons/lu";
  import { BsGraphUpArrow } from "react-icons/bs";
  import { FaAngleRight } from "react-icons/fa6";
@@ -122,22 +121,8 @@ const Home = () => {
           <p>No products available.</p>
         )}
       </div> 
-  </div>
-
-
-
-
-
-
-
-
-
-
-          
-          
+  </div>  
       </div>
-
-
 
 {/** section-3 */}
 <div className="section-3 ">

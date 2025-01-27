@@ -1,10 +1,10 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -12,34 +12,33 @@ const SignUp = () => {
 
     // Basic validation for empty fields
     if (!email || !password || !confirmPassword) {
-      setError('All fields are required');
+      setError("All fields are required");
       return;
     }
 
     // Check if passwords match
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      setError("Passwords do not match");
       return;
     }
 
     // Simulate a fake API call to sign up
     try {
-      const response = await fakeSignUpApi(email, password);
+      const response = await fakeSignUpApi();
       if (response.success) {
-        window.location.href = '/login'; // Redirect to login page after successful sign-up
+        window.location.href = "/login"; // Redirect to login page after successful sign-up
       } else {
-        setError('Sign-up failed');
+        setError("Sign-up failed");
       }
-    } catch (error) {
-      setError('An error occurred, please try again later');
+    } catch {
+      setError("An error occurred, please try again later");
     }
   };
 
   // Fake API function to simulate sign-up
-  const fakeSignUpApi = (email: string, password: string) => {
+  const fakeSignUpApi = () => {
     return new Promise<{ success: boolean }>((resolve) => {
       setTimeout(() => {
-        // Simulating a successful sign-up
         resolve({ success: true });
       }, 1000);
     });

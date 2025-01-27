@@ -5,9 +5,6 @@
 import React, { useState, useEffect } from 'react';
 
  import Link from "next/link"
- import { LuAlarmClock } from "react-icons/lu";
- import { BsGraphUpArrow } from "react-icons/bs";
- import { FaAngleRight } from "react-icons/fa6";
 
 
 type Product = {
