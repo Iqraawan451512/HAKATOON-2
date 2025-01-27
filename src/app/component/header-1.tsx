@@ -6,7 +6,6 @@ import { FaYoutube } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoTwitter } from "react-icons/io5";
 import { useState } from "react"; // Import useState to toggle the menu
-import { Link } from "sanity/router";
 
 function Header_1() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage menu visibility

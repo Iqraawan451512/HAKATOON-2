@@ -266,7 +266,7 @@ const Home = () => {
       </h2>
       <h1 className="mt-5 ml-2">Loudest a la Madison #1 <br /> (L Integral)</h1>
       <p className="font-sans ml-2 font-semibold text-[0.8rem] text-[#c0c0c0]">
-        We focus on ergonomic design and meeting you where you work. It’s only a keystroke away.
+        We focus on ergonomic design and meeting you where you work. Its only a keystroke away.
       </p>
       <p className="flex mt-4 text-[0.5rem] text-[#c0c0c0] font-semibold">
         <span><LuAlarmClock className="text-blue-400 mt-1 ml-1 text-[0.5rem]" /></span>
