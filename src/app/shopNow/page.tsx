@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Header_3 from "../component/headetr_3/page";
 import Header from "../component/header-2";
 import axios from "axios";
-import Link from "next/link";
 
 // Define Product Type
 type Product = {
