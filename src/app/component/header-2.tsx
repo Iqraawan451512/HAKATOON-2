@@ -29,13 +29,7 @@ function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
-  };
-
-  const addToCart = (product: any) => {
-    setCartItems([...cartItems, product]);
-  };
+  
 
   const handleRegisterClick = () => {
     setIsRegisterCardOpen(true);
