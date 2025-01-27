@@ -46,9 +46,9 @@ const ShopNow = () => {
   });
 
   const [rates, setRates] = useState<Rate[]>([]);
-  const [rateId, setrateId] = useState<string | null>(null);
-  const [labelPdf, setLabelPdf] = useState<string | null>(null);
-  const [trackingObj, setTrackingObj] = useState<trackingObjType | null>(null);
+  const [ setrateId] = useState<string | null>(null);
+  const [labelPdf] = useState<string | null>(null);
+  const [trackingObj] = useState<trackingObjType | null>(null);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
 
@@ -260,22 +260,8 @@ const ShopNow = () => {
             </div>
           )}
 
-          {/* Label PDF */}
-          {labelPdf && (
-            <div className="mt-6">
-              <h3 className="text-xl font-semibold text-gray-800">Label</h3>
-              <a href={labelPdf} target="_blank" rel="noopener noreferrer" className="text-blue-600">Download Shipping Label</a>
-            </div>
-          )}
+          
 
-          {/* Tracking */}
-          {trackingObj && (
-            <div className="mt-6">
-              <h3 className="text-xl font-semibold text-gray-800">Tracking Information</h3>
-              <p>{`Tracking Number: ${trackingObj.trackingNumber}`}</p>
-              <p>{`Carrier: ${trackingObj.carrierCode}`}</p>
-            </div>
-          )}
         </div>
       </div>
     </main>
