@@ -1,51 +1,42 @@
 "use client";
-import React, { useState } from 'react'; 
-import Link from 'next/link';
-import { FaRegHeart } from 'react-icons/fa';
-import { MdOutlineShoppingCart } from 'react-icons/md';
-import { IoMdSearch } from 'react-icons/io';
-import { MdSupervisorAccount } from 'react-icons/md';
-import ShoppingCartModal from './ShoppingCartModal'; 
+import React, { useState } from "react";
+import Link from "next/link";
+import { FaRegHeart } from "react-icons/fa";
+import { MdOutlineShoppingCart } from "react-icons/md";
+import { IoMdSearch } from "react-icons/io";
+import { MdSupervisorAccount } from "react-icons/md";
+import ShoppingCartModal from "./ShoppingCartModal";
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); 
-  const [isCartOpen, setIsCartOpen] = useState(false); 
-  const [cartItems, setCartItems] = useState<any[]>([]); 
-  const [isRegisterCardOpen, setIsRegisterCardOpen] = useState(false); 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState<any[]>([]);
+  const [isRegisterCardOpen, setIsRegisterCardOpen] = useState(false);
 
-  const [name, setName] = useState(""); 
-  const [email, setEmail] = useState(""); 
-  const [password, setPassword] = useState(""); 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const[state_count , setCount]=useState(5)
+  const [state_count, setCount] = useState(5);
 
-  let count=0;
-  function handleClick(){
-setCount(state_count+1)  
-setCount(state_count+1)  
-setCount(state_count+1)  
-setCount(state_count+1)  
-
-
-
-
-  } 
-
-
-
+  function handleClick() {
+    setCount(state_count + 1);
+    setCount(state_count + 1);
+    setCount(state_count + 1);
+    setCount(state_count + 1);
+  }
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen); 
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const toggleCart = () => {
-    setIsCartOpen(!isCartOpen); 
+    setIsCartOpen(!isCartOpen);
   };
 
   const addToCart = (product: any) => {
     setCartItems([...cartItems, product]);
   };
-
 
   const handleRegisterClick = () => {
     setIsRegisterCardOpen(true);
@@ -72,6 +63,7 @@ setCount(state_count+1)
         Bandage
       </h1>
 
+      {/* Main Navigation */}
       <ol className="hidden md:ml-[15rem] sm:flex gap-5 font-serif text-[1rem]">
         <Link href="/">
           <li className="text-gray-400 hover:text-blue-800 font-semibold">Home</li>
@@ -93,44 +85,46 @@ setCount(state_count+1)
         </Link>
       </ol>
 
-      <div className="flex flex-row gap-3">
+      {/* Right Section: Icons */}
+      <div className="flex flex-row gap-3 ml-auto">
         <p className="flex font-bold text-sky-400">
           <MdSupervisorAccount className="text-[1.4rem] hover:text-blue-900 cursor-pointer" />
 
           {/* Login Button */}
           <Link href={"/login"}>
-          < span
-            className="hover:text-blue-900 text-blue-400 cursor-pointer ml-1"
-          >
-            Login
-          </span></Link>
+            <span className="hover:text-blue-900 text-blue-400 cursor-pointer ml-1">
+              Login
+            </span>
+          </Link>
           <span> / </span>
+
           {/* Register Button */}
-          <span 
-            onClick={handleRegisterClick} 
+          <span
+            onClick={handleRegisterClick}
             className="hover:text-blue-900 cursor-pointer"
           >
             Register
           </span>
         </p>
-        <IoMdSearch className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex " />
-                 <MdOutlineShoppingCart
-          onClick={toggleCart}
-          className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex "
-        />
-        <p className="text-sky-400 hover:text-blue-800 cursor-pointer  hidden sm:flex ">{cartItems.length}</p>
 
+        {/* Icons: Search, Cart, Wishlist */}
+      <Link href={"./cart"}>  <MdOutlineShoppingCart
+          
+          className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex"
+        /></Link>
+        <p className="text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex">
+          {cartItems.length}
+        </p>
 
-        
-
-        <button  onClick={handleClick}>
-          <FaRegHeart className="text-[1.1rem] text-sky-400 hover:text-blue-800  cursor-pointer hidden sm:flex " />
-          </button>
-        
-        <p className="text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex ">{state_count}</p>
+        <button onClick={handleClick}>
+          <FaRegHeart className="text-[1.1rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex" />
+        </button>
+        <p className="text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex">
+          {state_count}
+        </p>
       </div>
 
-      {/* Mobile hamburger icon */}
+      {/* Mobile Hamburger Icon */}
       <div
         className="sm:hidden flex-col flex items-center cursor-pointer"
         onClick={toggleMenu}
@@ -142,8 +136,8 @@ setCount(state_count+1)
 
       {/* Mobile Navigation Menu */}
       <div
-        className={`sm:hidden ${isMenuOpen ? 'block' : 'hidden'} absolute top-20 left-0 right-0 bg-[#14213d] text-white ml-5 py-4`}
-        style={{ zIndex: 40 }} 
+        className={`sm:hidden ${isMenuOpen ? "block" : "hidden"} absolute top-20 left-0 right-0 bg-[#14213d] text-white ml-5 py-4`}
+        style={{ zIndex: 40 }}
       >
         <ol className="flex flex-col items-center">
           <Link href="/">
@@ -237,9 +231,6 @@ setCount(state_count+1)
           </div>
         </div>
       )}
-
-     
-     
     </nav>
   );
 }

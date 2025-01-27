@@ -4,8 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Header_3 from "../component/headetr_3/page";
 import Header from "../component/header-2";
 import axios from "axios";
-import { Address, Rate, trackingObjType } from "@/app/type";
-import { cartProductsWhichCanBeShipped } from "@/app/data";
 import Link from "next/link";
 
 // Define Product Type

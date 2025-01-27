@@ -104,11 +104,11 @@ const Home = () => {
               className="bg-white shadow-lg rounded-lg overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
             >
            
-              <img
+            <Link href={`/product/${product._id}`}><img
                 src={product.imageUrl}
                 alt={product.name}
                 className="w-full h-64 object-cover "
-              />
+              /></Link>
               <div className="p-4">
 
                 <p className="text-lg font-semibold mt-2">${product.price}</p>
@@ -158,11 +158,11 @@ const Home = () => {
               key={product._id}
               className="bg-white shadow-lg rounded-lg overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105 "
             >
-              <img
+           <Link href={`/product/${product._id}`}><img
                 src={product.imageUrl}
                 alt={product.name}
                 className="w-full h-64 object-cover"
-              />
+              /></Link>
               <div className="p-4">
                 <h1 className="text-xl font-bold">{product.name}</h1> {/* Product Name */}
                 <p className="text-lg font-semibold mt-2">${product.price}</p>
@@ -195,12 +195,12 @@ const Home = () => {
         We know how large objects will act, we know <br /> how objects will act, but things on a small scale.
       </h2>
       <div className=" justify-center lg:justify-start items-center mt-4">
-        <span className="font-bold text-white text-xl lg:text-2xl">$16.48</span> <br />
-        <Link href="/">
-          <button className="ml-1 mt-4 bg-green-500 w-32 h-12 hover:text-gray-300 hover:bg-green-900 rounded-md font-semibold text-white">
-            ADD TO CART
-          </button>
-        </Link>
+       <span className="font-bold text-white text-xl lg:text-2xl">$16.48</span> <br />
+       <Link href="/cart">
+       <button className="ml-1 mt-4 cursor-pointer bg-green-500 w-32 h-12 hover:text-gray-300 hover:bg-green-900 rounded-md font-semibold text-white">
+         ADD TO CART 
+          </button></Link>
+      
       </div>
     </div>
 
@@ -217,24 +217,39 @@ const Home = () => {
 
 
 {/** section-12*/}
-<div className="sec-five flex ">
+<div className="sec-five flex flex-col lg:flex-row items-center lg:items-start justify-center lg:ml-[6rem] mt-[4rem] gap-8 px-4 lg:px-0">
+  <img
+    src="second-last.png"
+    alt="image"
+    className="w-full lg:w-[30rem] h-auto lg:h-[24rem] object-cover mt-4"
+  />
 
-<img src="https://scontent.fkhi22-1.fna.fbcdn.net/v/t1.15752-9/462636577_8779859458794072_5133911273927050977_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGS9Au6G6SYgJgwZIeliQ3x1rFGruw218_WsUau7DbXz_W025D4tuOXWoYXTXhW-s3OWPw3p1VTzppDm9pWWDTZ&_nc_ohc=Oay_fLvtALIQ7kNvgGlhWZ8&_nc_zt=23&_nc_ht=scontent.fkhi22-1.fna&oh=03_Q7cD1QFsufFZTYIua-inlLYyNH9oV_GwiLiGJ3R6BMy0DKuQ5A&oe=677CFADE" alt="image" className="w-[45rem] p-0 mt-0 h-[27rem]" />
-
-
-<div className="content">
-<p className="mt-[5rem] text-gray-300 font-sans font-bold">SUMMER 2020</p>
-<p className="font-bold font-sans text-[1.8rem] mt-[0.5rem]">Part Of The Neural <br />Universe</p>
-<h2 className=" mt-[1rem] text-[#6c757d] text-[0.7rem] font-sans font-semibold ">We  know how large object will act, but things in a small scale , <br /> we know
-but things on a small scale.
- </h2>
- <Link href="/"><button className="ml-[1rem] mt-[2rem] bg-green-500 w-[8rem] h-[2.5rem] hover:text-green-400   hover:bg-green-900 rounded-md font-semibold text-white">BUY NOW</button></Link>
- <Link href="/"><button className="ml-[1rem] mt-[2rem] bg-white w-[9rem] border-2 border-green-600 h-[2.5rem] hover:text-gray-300 hover:bg-green-900 rounded-md font-semibold text-green-400">READ MORE</button></Link>
-
-
+  <div className="content text-center lg:text-left lg:ml-[3rem]">
+    <p className="mt-[2rem] lg:mt-[5rem] text-gray-300 font-sans font-bold text-sm lg:text-base">
+      SUMMER 2020
+    </p>
+    <p className="font-bold font-sans text-[1.5rem] lg:text-[1.8rem] mt-[0.5rem]">
+      Part Of The Neural <br /> Universe
+    </p>
+    <h2 className="mt-[1rem] text-[#6c757d] text-[0.8rem] lg:text-[0.9rem] font-sans font-semibold">
+      We know how large objects will act, but things on a small scale, <br />
+      we know but things on a small scale.
+    </h2>
+    <div className="flex flex-col lg:flex-row gap-4 justify-center lg:justify-start items-center mt-[2rem]">
+      <Link href="/">
+        <button className="bg-green-500 w-[8rem] h-[2.5rem] hover:text-green-400 hover:bg-green-900 rounded-md font-semibold text-white">
+          BUY NOW
+        </button>
+      </Link>
+      <Link href="/">
+        <button className="bg-white w-[9rem] border-2 border-green-600 h-[2.5rem] hover:text-gray-300 hover:bg-green-900 rounded-md font-semibold text-green-400">
+          READ MORE
+        </button>
+      </Link>
+    </div>
+  </div>
 </div>
 
-</div>
 {/** section-6 */}
 <div className="section-six mt-[6rem] px-4 lg:px-0">
   <div className="content-six text-center">
@@ -253,7 +268,7 @@ but things on a small scale.
     <div className="w-full lg:w-[15rem] bg-gray-100 border-2  relative">
       <p className="absolute bg-red-600 w-[3rem] h-[1.4rem] text-[0.7rem] text-white font-bold pl-3 pt-[0.2rem] mt-[0.8rem]">NEW</p>
       <img
-        src="https://scontent.fkhi22-1.fna.fbcdn.net/v/t1.15752-9/465566947_1252934749124928_2943102958796448426_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFmO0jV8Ab-XteGGQgpXCjsWmDO4nN4iRZaYM7ic3iJFseQSKsK46RGNjbRXPxl6b7dCmEe8Wr3c2yBocrtm-OY&_nc_ohc=GnG0Y9lVFecQ7kNvgFF42gd&_nc_zt=23&_nc_ht=scontent.fkhi22-1.fna&oh=03_Q7cD1QGtZHMcvuj92UxObgAipuh9uAJAoMxkMajHKc6RGvokdQ&oe=677CF9C7"
+        src="last-3 (2).png"
         alt="picture"
         className="w-full h-[15rem] "
       />
@@ -282,7 +297,7 @@ but things on a small scale.
     <div className="w-full lg:w-[15rem] bg-gray-100 border-2  relative">
       <p className="absolute bg-red-600 w-[3rem] h-[1.4rem] text-[0.7rem] text-white font-bold pl-3 pt-[0.2rem] mt-[0.8rem]">NEW</p>
       <img
-        src="https://scontent.fkhi22-1.fna.fbcdn.net/v/t1.15752-9/462650463_582441901094479_3751574785678899648_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFFOiBJnfTZpKs2j9aF3QQRlACSqJIh3tWUAJKokiHe1R0TF9FAvHZYt2zH8Voe5Bb-2Y0VOz2X6WkCPykm1vrX&_nc_ohc=Qg5iRSvort8Q7kNvgGHlCUo&_nc_zt=23&_nc_ht=scontent.fkhi22-1.fna&oh=03_Q7cD1QGVo1rvZyQ2mEDtxGeCTFnRop0HpHaWEaovyy4mwZM8aQ&oe=677D026C"
+        src="last-3 (1).png"
         alt="picture"
         className="w-full h-[15rem] "
       />
@@ -295,7 +310,7 @@ but things on a small scale.
       </h2>
       <h1 className="mt-5 ml-2">Loudest a la Madison #1 <br /> (L Integral)</h1>
       <p className="font-sans ml-2 font-semibold text-[0.8rem] text-[#c0c0c0]">
-        We focus on ergonomic design and meeting you where you work. It’s only a keystroke away.
+        We focus on ergonomic design and meeting you where you work. Its only a keystroke away.
       </p>
       <p className="flex mt-4 text-[0.5rem] text-[#c0c0c0] font-semibold">
         <span><LuAlarmClock className="text-blue-400 mt-1 ml-1 text-[0.5rem]" /></span>
@@ -311,7 +326,7 @@ but things on a small scale.
     <div className="w-full lg:w-[15rem] bg-gray-100 border-2 relative">
       <p className="absolute bg-red-600 w-[3rem] h-[1.4rem] text-[0.7rem] text-white font-bold pl-3 pt-[0.2rem] mt-[0.8rem]">NEW</p>
       <img
-        src="https://scontent.fkhi22-1.fna.fbcdn.net/v/t1.15752-9/462642969_1044357544158588_3728364887978325066_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGXiCnDPaZDIZCSl0PuaugjDKB1dwImhuEMoHV3AiaG4bkvKpJto9LrgZysLYEbwBZZrmYPQ4N_Tb9G2rBQKIJf&_nc_ohc=4StqxrOOQP0Q7kNvgHourdO&_nc_zt=23&_nc_ht=scontent.fkhi22-1.fna&oh=03_Q7cD1QFJ7UmICkWMmReuZlhQP_7hwAfVabHT3q9-2RosklCqJQ&oe=677D0578"
+        src="last-3 (2).png"
         alt="picture"
         className="w-full h-[15rem] "
       />
@@ -324,7 +339,7 @@ but things on a small scale.
       </h2>
       <h1 className="mt-5 ml-2">Loudest a la Madison #1 <br /> (L Integral)</h1>
       <p className="font-sans ml-2 font-semibold text-[0.8rem] text-[#c0c0c0]">
-        We focus on ergonomic design and meeting you where you work. It’s only a keystroke away.
+        We focus on ergonomic design and meeting you where you work. Its only a keystroke away.
       </p>
       <p className="flex mt-4 text-[0.5rem] text-[#c0c0c0] font-semibold">
         <span><LuAlarmClock className="text-blue-400 mt-1 ml-1 text-[0.5rem]" /></span>

@@ -32,7 +32,7 @@ function Shop() {
                     <div className="shop-card flex flex-wrap gap-5 bg-gray-100 justify-center">
     {/* Card 1 */}
     <div className="card h-[12rem] sm:w-[8rem] md:w-[10rem] lg:w-[12rem]">
-    <Link href={"/shopNow"}>    <img src="card-item (2).png" alt="picture" className="h-full w-full hover:translate-y-4 object-cover" /></Link>
+    <Link href={"/shopNow"}> <img src="card-item (2).png" alt="picture" className="h-full w-full hover:translate-y-4 object-cover" /></Link>
     </div>
     {/* Card 2 */}
     <div className="card h-[12rem] sm:w-[8rem] md:w-[10rem] lg:w-[12rem]">
@@ -59,18 +59,18 @@ function Shop() {
             <div className="div-two mt-[3rem] ">
                 <ul className="flex   text-[0.8rem] text-extrabold text-gray-600 font-serif gap-[5rem] md:gap-[17rem] mx-auto justify-center">
                 <Link href={"/shopNow"}><li className="hover:text-blue-800">showing all 12 products</li></Link>
-                    <li className="flex">
+                     <Link href={"./reviews"}><li className="flex">
                         views:
                         <AiFillAppstore className="text-[0.8rem] mt-[0.2rem] hover:text-blue-800 ml-2 h-[1rem] p-[0.2rem] w-[1rem] bg-slate-50" />
                         <AiOutlineBars className="text-[0.8rem] font-extrabold hover:text-blue-800 ml-[0.4rem] mt-[0.3rem] h-[1rem] p-[0.2rem] w-[1rem] text-extrabold bg-slate-50" />
-                    </li>
+                    </li></Link>
                     <li>
                         <select defaultValue="popularity" className="bg-gray-100 hover:bg-blue-600 hover:text-gray-50 border-2 pl-[0.6rem] border-gray-300 w-[6.5rem] h-[2rem]">
                             <option value="popularity">popularity</option>
                         </select>
-                        <button className="ml-[0.6rem] bg-blue-600 hover:bg-slate-600 text-gray-50 border-0 pl-[0.4rem] w-[4rem] rounded h-[2rem]">
-                            Filter
-                        </button>
+                        <Link href={"/reviews"}><button className="ml-[0.6rem] bg-blue-600 hover:bg-slate-600 text-gray-50 border-0 pl-[0.4rem] w-[4rem] rounded h-[2rem]">
+                            reviews
+                        </button></Link>
                     </li>
                 </ul>
             </div>

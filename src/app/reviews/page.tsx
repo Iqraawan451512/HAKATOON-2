@@ -1,92 +1,123 @@
-"use client"
-import React, { useState, useEffect } from "react";
-import Header_1 from "../component/header-1";
-import Header from "../component/header-2";
+"use client";
+import React, { useState } from 'react';
 
-const CommentSection_1 = () => {
-  const [comments, setComments] = useState<string[]>([]);
-  const [newComment, setNewComment] = useState<string>("");
+const ReviewsPage = () => {
+  const [reviews, setReviews] = useState([
+    {
+      name: 'malik Shahzain',
+      rating: 4,
+      comment: 'Great product! Really satisfied with the quality.',
+    },
+    {
+      name: 'Zara khan',
+      rating: 5,
+      comment: 'Excellent! Worth every penny.',
+    },
+  ]);
 
-  // Fetch comments from local storage when the component mounts
-  useEffect(() => {
-    const storedComments = localStorage.getItem("comments");
-    if (storedComments) {
-      setComments(JSON.parse(storedComments));
-    }
-  }, []);
+  const [newReview, setNewReview] = useState({
+    name: '',
+    rating: 1,
+    comment: '',
+  });
 
-  // Handle comment submit
-  const handleCommentSubmit = () => {
-    if (newComment.trim()) {
-      const updatedComments = [...comments, newComment];
-      setComments(updatedComments);
-      localStorage.setItem("comments", JSON.stringify(updatedComments));
-      setNewComment(""); // Clear input field after posting
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (newReview.name && newReview.comment) {
+      setReviews([...reviews, newReview]);
+      setNewReview({ name: '', rating: 1, comment: '' });
     }
   };
 
   return (
-    <main className="relative">
-      <Header_1 />
-      <Header />
-      <img src="https://plus.unsplash.com/premium_photo-1684785618727-378a3a5e91c5?q=80&w=1984&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="image" className="absolute  w-full h-full" />
+    <div className="min-h-screen bg-gradient-to-r from-slate-400 via-indigo-100 to-slate-200 p-10">
+      <div className="container mx-auto bg-white shadow-xl rounded-lg p-8 mb-10 max-w-4xl bg-opacity-80 backdrop-blur-md">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8 hover:text-cyan-800">Customer Reviews</h1>
 
-      <div className=" relative">
-      <p className="text-lg  mt-[5rem] mb-[5rem] text-center text-white lg:ml-[18rem]  w-[50rem] ">
-          We value your feedback! Share your thoughts about our service, products, or experience below. 
-          Your opinion matters and helps us improve!
+        {/* Review Form */}
+        <div className="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
+          <h2 className="text-xl font-medium mb-4 text-gray-700">Leave a Review</h2>
+           {/* Motivational Paragraph */}
+        <p className="text-center text-gray-600 text-lg mb-8">
+          Your feedback is very important to us! Help others by sharing your experience.
         </p>
-      <div className="max-w-[32rem]  mx-auto p-6 bg-blue-950 opacity-4 rounded-xl shadow-xl shadow-slate-200">
-        {/* Title and Intro */}
-        
-        <h2 className="text-3xl font-bold text-center mb-6  opacity-4 text-black">Reviews</h2>
-        
-        
-        {/* Display Comments */}
-        <div className="space-y-5">
-          {comments.length === 0 ? (
-            <p className="text-gray-800 text-center">No comments yet. Be the first to share your thoughts!</p>
-          ) : (
-            comments.map((comment, index) => (
-              <div
-                key={index}
-                className="p-5  bg-blue-300 border-[0.5px] rounded-lg shadow-md hover:shadow-lg hover:bg-[#f5f5f5] transition-all duration-300"
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label className="block text-gray-700" htmlFor="name">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                placeholder="Your name"
+                value={newReview.name}
+                onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
+                required
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700" htmlFor="rating">
+                Rating
+              </label>
+              <select
+                id="rating"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                value={newReview.rating}
+                onChange={(e) => setNewReview({ ...newReview, rating: Number(e.target.value) })}
               >
-                <p className="text-[#cacecf] hover:text-gray-950  ">{comment}</p>
-              </div>
-            ))
-          )}
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Fair</option>
+                <option value="3">3 - Good</option>
+                <option value="4">4 - Very Good</option>
+                <option value="5">5 - Excellent</option>
+              </select>
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700" htmlFor="comment">
+                Comment
+              </label>
+              <textarea
+                id="comment"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                placeholder="Your comments"
+                value={newReview.comment}
+                onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full p-3 bg-teal-700 text-white rounded-md hover:bg-blue-950 transition-colors"
+            >
+              Submit Review
+            </button>
+          </form>
         </div>
 
-        {/* Comment Input Area */}
-        <div className="mt-8">
-          <textarea
-            className="w-full sm:w-[28rem]  bg-blue-300 p-4 border-gray-800  text-gray-100 shadow-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-800 transition-all"
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            placeholder="Add a comment..."
-            rows={4}
-          ></textarea>
+       
 
-          <button
-            onClick={handleCommentSubmit}
-            className="mt-4 w-full sm:w-[28rem] px-6 py-2 bg-slate-600 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300"
-          >
-            Post Comment
-          </button>
+        {/* Reviews List */}
+        <div className="space-y-6">
+          {reviews.map((review, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <h3 className="font-semibold text-lg text-gray-800">{review.name}</h3>
+              <p className="text-yellow-500">
+                {'★'.repeat(review.rating)} {'☆'.repeat(5 - review.rating)}
+              </p>
+              <p className="text-gray-700 mt-2">{review.comment}</p>
+            </div>
+          ))}
         </div>
-
-        {/* Thank You Section */}
-        
       </div>
-      <div className="mt-8 text-center">
-          <p className="text-lg text-white font-sans font-semibold">
-            Thank you for taking the time to leave a comment. We truly appreciate your input and look forward to hearing more from you!
-          </p>
-        </div>
-        </div>
-    </main>
+    </div>
   );
 };
 
-export default CommentSection_1;
+export default ReviewsPage;

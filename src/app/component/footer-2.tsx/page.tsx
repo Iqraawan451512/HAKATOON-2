@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoTwitter } from "react-icons/io5";
@@ -58,7 +59,7 @@ function Footer_2(){
         <ul className="font-sans font-semibold text-[#ced4da] mt-[4rem] ml-[3rem]">
             <h1 className="text-[1rem] font-bold text-black ">Get IN Touch</h1>
             <div className="flex">
-            <p className=" boder-2 bg-gray-200 h-10 border-gray-400 w-[10rem]  pl-1 p-1">your email</p> <p/><button className="bg-blue-500 text-white h-10 w-[6rem]">subscribe</button>
+            <p className=" boder-2 bg-gray-200 h-10 border-gray-400 w-[10rem]  pl-1 p-1">your email</p> <p/> <Link href={"/"}><button className="bg-blue-500 text-white h-10 w-[6rem]">subscribe</button></Link>
            </div>
             <p className="text-[0.6rem]">Lore imp sum doller Amit</p>
         </ul>
