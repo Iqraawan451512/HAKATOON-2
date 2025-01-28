@@ -36,7 +36,7 @@ const Product = () => {
         const response = await fetch('https://template6-six.vercel.app/api/products');
         const result = await response.json();
         setData(result);
-      } catch (err) {
+      } catch  {
         setError('Failed to fetch products');
       } finally {
         setLoading(false);

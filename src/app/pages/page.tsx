@@ -11,7 +11,6 @@ import { FaLinkedin } from "react-icons/fa6";
 import Footer from "../component/footer/page";
 import { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi'; // For Hamburger and Close icon
-import Shop from "../shop/page";
 function Pages(){
     const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle the menu
           
