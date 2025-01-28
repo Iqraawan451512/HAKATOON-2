@@ -36,7 +36,7 @@ const Home = () => {
         const response = await fetch('https://template6-six.vercel.app/api/products'); 
         const result = await response.json();
         setData(result .slice(0, 12)); // Set the fetched data
-      } catch (err) {
+      } catch  {
         setError('Failed to fetch products');
       } finally {
         setLoading(false);
@@ -221,7 +221,7 @@ const Home = () => {
       we know but things on a small scale.
     </h2>
     <div className="flex flex-col lg:flex-row gap-4 justify-center lg:justify-start items-center mt-[2rem]">
-      <Link href="/">
+      <Link href="/shopNow">
         <button className="bg-green-500 w-[8rem] h-[2.5rem] hover:text-green-400 hover:bg-green-900 rounded-md font-semibold text-white">
           BUY NOW
         </button>

@@ -47,8 +47,6 @@ const ShopNow = () => {
 
   const [rates, setRates] = useState<Rate[]>([]);
   const [ setrateId] = useState<string | null>(null);
-  const [labelPdf] = useState<string | null>(null);
-  const [trackingObj] = useState<trackingObjType | null>(null);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
 

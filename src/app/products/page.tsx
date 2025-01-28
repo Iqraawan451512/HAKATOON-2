@@ -20,8 +20,6 @@ type Product = {
 
 const Product = () => {
   const [data, setData] = useState<Product[] | null>(null); // initialize as null
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -30,18 +28,20 @@ const Product = () => {
         const response = await fetch('https://template6-six.vercel.app/api/products'); 
         const result = await response.json();
         setData(result .slice(0, 1)); // Set the fetched data
-      } catch (err) {
-        setError('Failed to fetch products');
-      } finally {
-        setLoading(false);
+      } catch  {
+        setData([]); // Fallback to an empty array on error
+
+        
       }
     }
 
     fetchData();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (!data) return <p>Loading...</p>; // Handle loading without the loading state
+  if (data.length === 0) return <p>No products available.</p>; // Handle error or empty data
+
+  
 return(
 
 
