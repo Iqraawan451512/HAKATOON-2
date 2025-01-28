@@ -16,7 +16,7 @@ type Product = {
   product: string;
 };
 
-const Product = () => {
+const Product_Id = () => {
   const [data, setData] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -213,4 +213,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Product_Id;
