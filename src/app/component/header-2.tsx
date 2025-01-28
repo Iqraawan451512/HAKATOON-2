@@ -6,16 +6,25 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { MdSupervisorAccount } from "react-icons/md";
 import ShoppingCartModal from "./ShoppingCartModal";
 
+// Define the CartItem type
+interface CartItem {
+  id: string;
+  name: string;
+  quantity: number;
+  price: number;
+}
+
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState<any[]>([]);
-  const [isRegisterCardOpen, setIsRegisterCardOpen] = useState(false);
+  
+  // Use the CartItem type here instead of any[]
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
+  const [isRegisterCardOpen, setIsRegisterCardOpen] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [state_count, setCount] = useState(5);
 
   function handleClick() {
@@ -28,8 +37,6 @@ function Header() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  
 
   const handleRegisterClick = () => {
     setIsRegisterCardOpen(true);
@@ -46,7 +53,6 @@ function Header() {
     setName("");
     setEmail("");
     setPassword("");
-
     setIsRegisterCardOpen(false);
   };
 
@@ -92,19 +98,17 @@ function Header() {
           <span> / </span>
 
           {/* Register Button */}
-          <span
-            onClick={handleRegisterClick}
-            className="hover:text-blue-900 cursor-pointer"
-          >
+          <span onClick={handleRegisterClick} className="hover:text-blue-900 cursor-pointer">
             Register
           </span>
         </p>
 
         {/* Icons: Search, Cart, Wishlist */}
-      <Link href={"./cart"}>  <MdOutlineShoppingCart
-          
-          className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex"
-        /></Link>
+        <Link href={"./cart"}>
+          <MdOutlineShoppingCart
+            className="text-[1.3rem] text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex"
+          />
+        </Link>
         <p className="text-sky-400 hover:text-blue-800 cursor-pointer hidden sm:flex">
           {cartItems.length}
         </p>
@@ -118,10 +122,7 @@ function Header() {
       </div>
 
       {/* Mobile Hamburger Icon */}
-      <div
-        className="sm:hidden flex-col flex items-center cursor-pointer"
-        onClick={toggleMenu}
-      >
+      <div className="sm:hidden flex-col flex items-center cursor-pointer" onClick={toggleMenu}>
         <div className="w-6 h-1 bg-sky-900 mb-1"></div>
         <div className="w-6 h-1 bg-sky-900 mb-1"></div>
         <div className="w-6 h-1 bg-sky-900"></div>
