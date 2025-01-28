@@ -27,7 +27,7 @@ function Header() {
   const [password, setPassword] = useState("");
   const [state_count, setCount] = useState(5);
 
-  function handleClick() {
+  function handleClick():void {
     setCount(state_count + 1);
     setCount(state_count + 1);
     setCount(state_count + 1);
