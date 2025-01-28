@@ -16,7 +16,7 @@ type Product = {
   product: string;
 };
 
-const Product_Id = () => {
+const ProductPage = () => {
   const [data, setData] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -36,7 +36,7 @@ const Product_Id = () => {
         const response = await fetch('https://template6-six.vercel.app/api/products');
         const result = await response.json();
         setData(result);
-      } catch  {
+      } catch {
         setError('Failed to fetch products');
       } finally {
         setLoading(false);
@@ -82,17 +82,15 @@ const Product_Id = () => {
       <Header_3 />
       <Header />
 
-      <div className="main-of-product lg:ml-[0.1rem]  gap-4 text-center justify-center mt-[3rem] px-4 sm:w-full md:w-[80rem] lg:w-[80rem]">
+      <div className="main-of-product lg:ml-[0.1rem] gap-4 text-center justify-center mt-[3rem] px-4 sm:w-full md:w-[80rem] lg:w-[80rem]">
         {/* Search Bar */}
-        <div className="search-bar  mb-4">
+        <div className="search-bar mb-4">
           <input
-
             type="text"
             placeholder="Search products..."
             className="border p-2 rounded-md w-full md:w-[30rem] hover:bg-slate-200 font-sans "
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            
           />
         </div>
 
@@ -133,7 +131,7 @@ const Product_Id = () => {
                           );
                           addToCart(product, quantity);
                         }}
-                        className="  bg-white-500 text-blue-500 font-sans px-2 py-1 rounded-lg hover:bg-blue-700 border-solid border-2 hover:text-white border-blue-500"
+                        className="bg-white-500 text-blue-500 font-sans px-2 py-1 rounded-lg hover:bg-blue-700 border-solid border-2 hover:text-white border-blue-500"
                       >
                         Add to Cart
                       </button>
@@ -143,12 +141,18 @@ const Product_Id = () => {
                   {/* Right Side - Description */}
                   <div className="w-full sm:w-2/3 pl-4 mt-4 sm:mt-0">
                     <div>
-                      <h2 className="text-lg font-semibold lg:text-[1.8rem] sm:text-xl  lg:font-bold mt-2 lg:mb-[2rem] hover:text-blue-800">{product.title}</h2>
+                      <h2 className="text-lg font-semibold lg:text-[1.8rem] sm:text-xl lg:font-bold mt-2 lg:mb-[2rem] hover:text-blue-800">
+                        {product.title}
+                      </h2>
 
                       {expandedDescription === product._id ? (
-                        <p className="text-sm text-gray-500 font-sans lg:mt-3 md:mt-3 lg:text-[1rem] lg:leading-relaxed">{product.description}</p>
+                        <p className="text-sm text-gray-500 font-sans lg:mt-3 md:mt-3 lg:text-[1rem] lg:leading-relaxed">
+                          {product.description}
+                        </p>
                       ) : (
-                        <p className="text-sm text-gray-500 font-sans">{product.description.slice(0, 700)}...</p>
+                        <p className="text-sm text-gray-500 font-sans">
+                          {product.description.slice(0, 700)}...
+                        </p>
                       )}
                     </div>
 
@@ -213,4 +217,4 @@ const Product_Id = () => {
   );
 };
 
-export default Product_Id;
+export default ProductPage;

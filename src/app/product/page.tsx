@@ -16,7 +16,7 @@ type Product = {
   product: string;
 };
 
-const Product = () => {
+const ProductPage: React.FC = () => { // Changed the component name to align with Next.js conventions
   const [data, setData] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -36,8 +36,6 @@ const Product = () => {
         const response = await fetch('https://template6-six.vercel.app/api/products');
         if (!response.ok) throw new Error('Failed to fetch products');
         const result = await response.json();
-
-        console.log('Fetched Data:', result); // Debugging
         setData(result);
       } catch (err) {
         console.error('Error fetching products:', err);
@@ -177,48 +175,9 @@ const Product = () => {
             <p>No products available.</p>
           )}
         </div>
-
-        {/* Cart Summary */}
-        <div className="mt-10">
-          <h2 className="text-xl font-bold text-gray-800">Cart Summary</h2>
-          <ul>
-            {cart.length > 0 ? (
-              cart.map((item) => (
-                <li key={item.product._id} className="flex flex-col sm:flex-row justify-between mb-2">
-                  <span>{item.product.title} (x{item.quantity})</span>
-                  <div className="flex gap-2 mt-2 sm:mt-0">
-                    <button
-                      onClick={() => removeFromCart(item.product._id)}
-                      className="bg-red-500 text-white px-2 py-1 rounded-lg hover:bg-red-700"
-                    >
-                      Remove
-                    </button>
-                    <button
-                      onClick={() => adjustQuantity(item.product._id, item.quantity + 1)}
-                      className="bg-green-500 text-white px-2 py-1 rounded-lg hover:bg-green-700"
-                    >
-                      +1
-                    </button>
-                    <button
-                      onClick={() => adjustQuantity(item.product._id, item.quantity - 1)}
-                      className="bg-yellow-500 text-white px-2 py-1 rounded-lg hover:bg-yellow-700"
-                    >
-                      -1
-                    </button>
-                  </div>
-                </li>
-              ))
-            ) : (
-              <p>No items in cart.</p>
-            )}
-          </ul>
-          <p className="mt-4 font-semibold">
-            Total Items: {cart.reduce((acc, item) => acc + item.quantity, 0)}
-          </p>
-        </div>
       </div>
     </main>
   );
 };
 
-export default Product;
+export default ProductPage; // Updated export
