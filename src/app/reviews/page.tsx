@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from 'react';
 
 const ReviewsPage = () => {
@@ -21,7 +21,8 @@ const ReviewsPage = () => {
     comment: '',
   });
 
-  const handleSubmit = (e) => {
+  // Define the event type here
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (newReview.name && newReview.comment) {
       setReviews([...reviews, newReview]);
@@ -37,10 +38,10 @@ const ReviewsPage = () => {
         {/* Review Form */}
         <div className="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
           <h2 className="text-xl font-medium mb-4 text-gray-700">Leave a Review</h2>
-           {/* Motivational Paragraph */}
-        <p className="text-center text-gray-600 text-lg mb-8">
-          Your feedback is very important to us! Help others by sharing your experience.
-        </p>
+          {/* Motivational Paragraph */}
+          <p className="text-center text-gray-600 text-lg mb-8">
+            Your feedback is very important to us! Help others by sharing your experience.
+          </p>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block text-gray-700" htmlFor="name">
@@ -97,8 +98,6 @@ const ReviewsPage = () => {
             </button>
           </form>
         </div>
-
-       
 
         {/* Reviews List */}
         <div className="space-y-6">
