@@ -2,13 +2,21 @@
 
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { Button } from "@/app/component/button"
-import { Input } from "@/app/component/input"
+import { Button } from '@/app/component/button'
+import { Input } from '@/app/component/input'
 import Footer from '../component/footer/page'
 import { motion } from 'framer-motion'
 import Link from "next/link"
 import Header_1 from '../component/header-1'
 import Header from '../component/header-2'
+
+const relatedProducts = [
+  { id: 1, name: "Chair Haven Chair", price: "250", image: "/chair haven.jpg" },
+  { id: 2, name: "Bright Space", price: "155", image: "/bright space.jpg" },
+  { id: 3, name: "Serene Seat", price: "125", image: "/serene seat.jpg" },
+  { id: 4, name: "Reflective Haven", price: "399", image: "/reflective haven.jpg" },
+];
+
 export default function ProductPage() {
   const [amount, setAmount] = useState(1)
   const [isVisible, setIsVisible] = useState(false)
@@ -32,10 +40,7 @@ export default function ProductPage() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.1
-      }
+      transition: { delayChildren: 0.3, staggerChildren: 0.1 }
     }
   }
 
@@ -44,17 +49,14 @@ export default function ProductPage() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
+      transition: { duration: 0.5, ease: "easeOut" }
     }
   }
 
   return (
     <>
-<Header_1/>
-<Header/>
+      <Header_1 />
+      <Header />
       <motion.div 
         className="container mx-auto px-4 py-8"
         initial="hidden"
@@ -98,18 +100,9 @@ export default function ProductPage() {
             <motion.div className="mb-6" variants={itemVariants}>
               <h2 className="font-medium mb-2">Dimensions</h2>
               <div className="grid grid-cols-3 gap-4 text-gray-600">
-                <div>
-                  <p className="font-medium">Height</p>
-                  <p>110cm</p>
-                </div>
-                <div>
-                  <p className="font-medium">Width</p>
-                  <p>75cm</p>
-                </div>
-                <div>
-                  <p className="font-medium">Depth</p>
-                  <p>50cm</p>
-                </div>
+                <div><p className="font-medium">Height</p><p>110cm</p></div>
+                <div><p className="font-medium">Width</p><p>75cm</p></div>
+                <div><p className="font-medium">Depth</p><p>50cm</p></div>
               </div>
             </motion.div>
             <motion.div className="flex items-center gap-4 mb-6" variants={itemVariants}>
@@ -124,13 +117,13 @@ export default function ProductPage() {
               />
             </motion.div>
             <motion.div variants={itemVariants}>
-              <Link href ="/cart">
-              <Button
-                onClick={addToCart}
-                className="w-auto bg-[#2A254B] hover:bg-[#2A254B]/90 text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
-              >
-                Add to cart
-              </Button>
+              <Link href="/cart">
+                <Button
+                  onClick={addToCart}
+                  className="w-auto bg-[#2A254B] hover:bg-[#2A254B]/90 text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
+                >
+                  Add to cart
+                </Button>
               </Link>
             </motion.div>
           </motion.div>
@@ -160,14 +153,15 @@ export default function ProductPage() {
             ))}
           </motion.div>
         </motion.div>
+        
         <motion.div className="text-center mt-12" variants={itemVariants}>
-          <Link href ="./shopNow">
-          <Button 
-            variant="outline" 
-            className="font-clash transition-all duration-300 transform hover:scale-105 active:scale-95"
-          >
-            View collection
-          </Button>
+          <Link href="/shopNow">
+            <Button 
+              variant="outline" 
+              className="font-clash transition-all duration-300 transform hover:scale-105 active:scale-95"
+            >
+              View collection
+            </Button>
           </Link>
         </motion.div>
       </motion.div>
@@ -175,10 +169,3 @@ export default function ProductPage() {
     </>
   )
 }
-
-const relatedProducts = [
-  { id: 1, name: "Chair Haven Chair", price: "250", image: "/chair haven.jpg" },
-  { id: 2, name: "Bright Space", price: "155", image: "/bright space.jpg" },
-  { id: 3, name: "Serene Seat", price: "125", image: "/serene seat.jpg" },
-  { id: 4, name: "Reflective Haven", price: "399", image: "/reflective haven.jpg" },
-]
