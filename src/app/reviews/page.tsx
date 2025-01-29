@@ -66,7 +66,7 @@ const ReviewsPage = () => {
                 id="rating"
                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
                 value={newReview.rating}
-                onChange={(e) => setNewReview({ ...newReview, rating: Number(e.target.value) })}
+                onChange={(e):any => setNewReview({ ...newReview, rating: Number(e.target.value) })}
               >
                 <option value="1">1 - Poor</option>
                 <option value="2">2 - Fair</option>
