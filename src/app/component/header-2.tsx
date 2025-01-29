@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { MdSupervisorAccount } from "react-icons/md";
-import ShoppingCartModal from "../shoppingCardModel";
+import ShoppingCartModal from "@/app/shoppingCardModel";
 
 // Define the CartItem type
 interface CartItem {

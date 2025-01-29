@@ -8,9 +8,9 @@ import React, { useState, useEffect } from 'react';
  import { LuAlarmClock } from "react-icons/lu";
  import { BsGraphUpArrow } from "react-icons/bs";
  import { FaAngleRight } from "react-icons/fa6";
-import Header_1 from "./component/header-1";
-import Header_2 from "./component/header-2";
-import Footer from "./component/footer/page";
+import Header_1 from '@/app/component/header-1';
+import Header from './component/header-2';
+import Footer from './component/footer/page';
 
 
 type Product = {
@@ -53,7 +53,7 @@ const Home = () => {
   return(
     <main>
       <Header_1/> 
-      <Header_2/>
+      <Header/>
       <div className="main-div w-full   h-[30rem] flex flex-col md:flex-row">
   <div className="picture h-[29rem] bg-[#00b4d8] ">
     <img
