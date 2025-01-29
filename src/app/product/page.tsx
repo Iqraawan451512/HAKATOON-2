@@ -1,174 +1,184 @@
-'use client';
+'use client'
 
-import Header_3 from '@/app/component/headetr_3/page';
-import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
-import Header from '@/app/component/header-2';
+import Image from 'next/image'
+import { useState, useEffect } from 'react'
+import { Button } from "@/app/component/button"
+import { Input } from "@/app/component/input"
+import Footer from '../component/footer/page'
+import News from "@/app/component/newsletter-section"
+import { motion } from 'framer-motion'
+import Link from "next/link"
 
-type Productss = {
-  _id: string;
-  name: string;
-  description: string;
-  price: number;
-  imageUrl: string;
-  discountedPrice: number;
-  title: string;
-  product: string;
-};
-
-const ProductPage: React.FC = () => { // Changed the component name to align with Next.js conventions
-  const [data, setData] = useState<Productss[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [cart, setCart] = useState<{ product: Productss; quantity: number }[]>([]);
-  const [expandedDescription, setExpandedDescription] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState<string>('');
-
-  const filteredProducts = data.filter(
-    (product) =>
-      product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+export default function ProductPage() {
+  const [amount, setAmount] = useState(1)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch('https://template6-six.vercel.app/api/products');
-        if (!response.ok) throw new Error('Failed to fetch products');
-        const result = await response.json();
-        setData(result);
-      } catch (err) {
-        console.error('Error fetching products:', err);
-        setError('Failed to fetch products');
-      } finally {
-        setLoading(false);
+    setIsVisible(true)
+  }, [])
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value)
+    if (!isNaN(value) && value > 0) {
+      setAmount(value)
+    }
+  }
+
+  const addToCart = () => {
+    console.log(`Added ${amount} of The Dandy Chair to cart`)
+  }
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.1
       }
     }
+  }
 
-    fetchData();
-  }, []);
-
-  const addToCart = (product: Productss, quantity: number) => {
-    const existingProductIndex = cart.findIndex((item) => item.product._id === product._id);
-    if (existingProductIndex >= 0) {
-      const updatedCart = [...cart];
-      updatedCart[existingProductIndex].quantity += quantity;
-      setCart(updatedCart);
-    } else {
-      setCart([...cart, { product, quantity }]);
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
     }
-  };
-
-  
-
-  
-
-  const toggleDescription = (productId: string) => {
-    setExpandedDescription((prevId) => (prevId === productId ? null : productId));
-  };
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  }
 
   return (
-    <main>
-      <Header_3 />
-      <Header />
+    <>
 
-      <div className="main-of-product lg:ml-[0.1rem] gap-4 text-center justify-center mt-[3rem] px-4 sm:w-full md:w-[80rem] lg:w-[80rem]">
-        {/* Search Bar */}
-        <div className="search-bar mb-4">
-          <input
-            type="text"
-            placeholder="Search products..."
-            className="border p-2 rounded-md w-full md:w-[30rem] hover:bg-slate-200 font-sans "
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
+      <motion.div 
+        className="container mx-auto px-4 py-8"
+        initial="hidden"
+        animate={isVisible ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
+        <motion.div className="grid md:grid-cols-2 gap-8 mb-16" variants={containerVariants}>
+          {/* Image Section */}
+          <motion.div 
+            className="bg-gray-100"
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src="/Image Left.png"
+              alt="The Dandy Chair"
+              width={600}
+              height={600}
+              className="w-full h-auto"
+            />
+          </motion.div>
 
-        {/* Product List */}
-        <div className="w-full md:w-[80rem]">
-          {Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-              <div
-                key={product._id}
-                className="bg-white shadow-lg rounded-lg hover:shadow-lg hover:shadow-slate-500 overflow-hidden mb-4"
-              >
-                <div className="flex flex-wrap sm:flex-nowrap items-center p-4">
-                  {/* Left Side - Image */}
-                  <div className="w-full sm:w-1/3 pr-4">
-                    <Link href={`/products/${product._id}`}>
-                      <img
-                        src={product.imageUrl}
-                        alt={product.name}
-                        className="w-full h-48 sm:h-64 object-cover rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-                      />
-                    </Link>
-                    <h2 className="text-lg font-semibold sm:text-xl mt-2 hover:text-blue-800">{product.title}</h2>
-                    <p className="text-lg font-semibold mt-2 sm:mt-1">$ {product.price}</p>
-
-                    {/* Quantity Input */}
-                    <div className="mt-4 flex items-center gap-1 sm:ml-[7rem]">
-                      <input
-                        type="number"
-                        min="1"
-                        defaultValue="1"
-                        id={`quantity-${product._id}`}
-                        className="border px-2 py-1 rounded-md w-20"
-                      />
-                      <button
-                        onClick={() => {
-                          const quantity = Number(
-                            (document.getElementById(`quantity-${product._id}`) as HTMLInputElement).value
-                          );
-                          addToCart(product, quantity);
-                        }}
-                        className="bg-white-500 text-blue-500 font-sans px-2 py-1 rounded-lg hover:bg-blue-700 border-solid border-2 hover:text-white border-blue-500"
-                      >
-                        Add to Cart
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Right Side - Description */}
-                  <div className="w-full sm:w-2/3 pl-4 mt-4 sm:mt-0">
-                    <div>
-                      <h2 className="text-lg font-semibold lg:text-[1.8rem] sm:text-xl lg:font-bold mt-2 lg:mb-[2rem] hover:text-blue-800">
-                        {product.title}
-                      </h2>
-
-                      {expandedDescription === product._id ? (
-                        <p className="text-sm text-gray-500 font-sans lg:mt-3 md:mt-3 lg:text-[1rem] lg:leading-relaxed">
-                          {product.description}
-                        </p>
-                      ) : (
-                        <p className="text-sm text-gray-500 font-sans">
-                          {product.description.slice(0, 700)}...
-                        </p>
-                      )}
-                    </div>
-
-                    {/* "See More" Button */}
-                    {product.description.length > 100 && (
-                      <button
-                        onClick={() => toggleDescription(product._id)}
-                        className="text-blue-500 mt-2 border-solid border-2 lg:mt-[2rem] border-blue-500 px-2 py-1 rounded-lg hover:bg-blue-500 hover:text-white"
-                      >
-                        {expandedDescription === product._id ? 'See Less' : 'See More'}
-                      </button>
-                    )}
-                  </div>
+          {/* Text Section */}
+          <motion.div className="self-start mt-6" variants={containerVariants}>
+            <motion.h1 className="font-clash text-4xl font-medium mb-2" variants={itemVariants}>The Dandy Chair</motion.h1>
+            <motion.p className="text-2xl font-medium mb-6" variants={itemVariants}>£250</motion.p>
+            <motion.div className="mb-6" variants={itemVariants}>
+              <h2 className="font-medium mb-2">Description</h2>
+              <p className="text-gray-600">
+                A timeless design, with premium materials features as one of our most
+                popular and iconic pieces. The dandy chair is perfect for any stylish
+                living space with beech legs and lambskin leather upholstery.
+              </p>
+            </motion.div>
+            <motion.ul className="list-disc list-inside mb-6 text-gray-600" variants={itemVariants}>
+              <li>Premium material</li>
+              <li>Handmade upholstery</li>
+              <li>Quality timeless classic</li>
+            </motion.ul>
+            <motion.div className="mb-6" variants={itemVariants}>
+              <h2 className="font-medium mb-2">Dimensions</h2>
+              <div className="grid grid-cols-3 gap-4 text-gray-600">
+                <div>
+                  <p className="font-medium">Height</p>
+                  <p>110cm</p>
+                </div>
+                <div>
+                  <p className="font-medium">Width</p>
+                  <p>75cm</p>
+                </div>
+                <div>
+                  <p className="font-medium">Depth</p>
+                  <p>50cm</p>
                 </div>
               </div>
-            ))
-          ) : (
-            <p>No products available.</p>
-          )}
-        </div>
-      </div>
-    </main>
-  );
-};
+            </motion.div>
+            <motion.div className="flex items-center gap-4 mb-6" variants={itemVariants}>
+              <label htmlFor="amount" className="font-medium">Amount:</label>
+              <Input
+                type="number"
+                id="amount"
+                value={amount}
+                onChange={handleAmountChange}
+                className="w-20 transition-all duration-300 focus:ring-2 focus:ring-[#2A254B] focus:border-transparent"
+                min="1"
+              />
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <Link href ="/cart">
+              <Button
+                onClick={addToCart}
+                className="w-auto bg-[#2A254B] hover:bg-[#2A254B]/90 text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
+              >
+                Add to cart
+              </Button>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
-export default ProductPage; // Updated export
+        <motion.div variants={containerVariants}>
+          <motion.h2 className="font-clash text-2xl font-medium mb-6" variants={itemVariants}>You might also like</motion.h2>
+          <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" variants={containerVariants}>
+            {relatedProducts.map((product) => (
+              <motion.div key={product.id} className="group" variants={itemVariants}>
+                <motion.div 
+                  className="mb-4 overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={300}
+                    height={300}
+                    className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                  />
+                </motion.div>
+                <h3 className="font-medium mb-1">{product.name}</h3>
+                <p className="text-gray-600">£{product.price}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+        <motion.div className="text-center mt-12" variants={itemVariants}>
+          <Link href ="/product-listing">
+          <Button 
+            variant="outline" 
+            className="font-clash transition-all duration-300 transform hover:scale-105 active:scale-95"
+          >
+            View collection
+          </Button>
+          </Link>
+        </motion.div>
+      </motion.div>
+      <News/>
+      <Footer />
+    </>
+  )
+}
+
+const relatedProducts = [
+  { id: 1, name: "The Dandy chair", price: "250", image: "/dandy-chair.png" },
+  { id: 2, name: "Rustic Vase Set", price: "155", image: "/vase-set.png" },
+  { id: 3, name: "The Silky Vase", price: "125", image: "/silky-vase.png" },
+  { id: 4, name: "The Lucy Lamp", price: "399", image: "/lucy-lamp.png" },
+]
