@@ -103,7 +103,7 @@ const Home = () => {
               className="bg-white shadow-lg rounded-lg overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
             >
            
-            <Link href={`/product/${product._id}`}><img
+            <Link href={"/product"}><img
                 src={product.imageUrl}
                 alt={product.name}
                 className="w-full h-64 object-cover "
@@ -143,7 +143,7 @@ const Home = () => {
               key={product._id}
               className="bg-white shadow-lg rounded-lg overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105 "
             >
-           <Link href={`/product/${product._id}`}><img
+           <Link href={"/product"}><img
                 src={product.imageUrl}
                 alt={product.name}
                 className="w-full h-64 object-cover"
