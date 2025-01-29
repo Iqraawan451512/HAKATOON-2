@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import Header from '@/app/component/header-2';
 
-type Product = {
+type Productss = {
   _id: string;
   name: string;
   description: string;
@@ -17,10 +17,10 @@ type Product = {
 };
 
 const ProductPage: React.FC = () => { // Changed the component name to align with Next.js conventions
-  const [data, setData] = useState<Product[]>([]);
+  const [data, setData] = useState<Productss[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [cart, setCart] = useState<{ product: Product; quantity: number }[]>([]);
+  const [cart, setCart] = useState<{ product: Productss; quantity: number }[]>([]);
   const [expandedDescription, setExpandedDescription] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -48,7 +48,7 @@ const ProductPage: React.FC = () => { // Changed the component name to align wit
     fetchData();
   }, []);
 
-  const addToCart = (product: Product, quantity: number) => {
+  const addToCart = (product: Productss, quantity: number) => {
     const existingProductIndex = cart.findIndex((item) => item.product._id === product._id);
     if (existingProductIndex >= 0) {
       const updatedCart = [...cart];
@@ -59,18 +59,9 @@ const ProductPage: React.FC = () => { // Changed the component name to align wit
     }
   };
 
-  const removeFromCart = (productId: string) => {
-    const updatedCart = cart.filter((item) => item.product._id !== productId);
-    setCart(updatedCart);
-  };
+  
 
-  const adjustQuantity = (productId: string, quantity: number) => {
-    if (quantity <= 0) return;
-    const updatedCart = cart.map((item) =>
-      item.product._id === productId ? { ...item, quantity } : item
-    );
-    setCart(updatedCart);
-  };
+  
 
   const toggleDescription = (productId: string) => {
     setExpandedDescription((prevId) => (prevId === productId ? null : productId));
