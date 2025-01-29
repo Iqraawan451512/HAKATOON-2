@@ -5,10 +5,10 @@ import { useState, useEffect } from 'react'
 import { Button } from "@/app/component/button"
 import { Input } from "@/app/component/input"
 import Footer from '../component/footer/page'
-import News from "@/app/component/newsletter-section"
 import { motion } from 'framer-motion'
 import Link from "next/link"
-
+import Header_1 from '../component/header-1'
+import Header from '../component/header-2'
 export default function ProductPage() {
   const [amount, setAmount] = useState(1)
   const [isVisible, setIsVisible] = useState(false)
@@ -53,7 +53,8 @@ export default function ProductPage() {
 
   return (
     <>
-
+<Header_1/>
+<Header/>
       <motion.div 
         className="container mx-auto px-4 py-8"
         initial="hidden"
@@ -69,7 +70,7 @@ export default function ProductPage() {
             transition={{ duration: 0.3 }}
           >
             <Image
-              src="/Image Left.png"
+              src="/dainy-chair.png"
               alt="The Dandy Chair"
               width={600}
               height={600}
@@ -160,7 +161,7 @@ export default function ProductPage() {
           </motion.div>
         </motion.div>
         <motion.div className="text-center mt-12" variants={itemVariants}>
-          <Link href ="/product-listing">
+          <Link href ="./shopNow">
           <Button 
             variant="outline" 
             className="font-clash transition-all duration-300 transform hover:scale-105 active:scale-95"
@@ -170,15 +171,14 @@ export default function ProductPage() {
           </Link>
         </motion.div>
       </motion.div>
-      <News/>
       <Footer />
     </>
   )
 }
 
 const relatedProducts = [
-  { id: 1, name: "The Dandy chair", price: "250", image: "/dandy-chair.png" },
-  { id: 2, name: "Rustic Vase Set", price: "155", image: "/vase-set.png" },
-  { id: 3, name: "The Silky Vase", price: "125", image: "/silky-vase.png" },
-  { id: 4, name: "The Lucy Lamp", price: "399", image: "/lucy-lamp.png" },
+  { id: 1, name: "Chair Haven Chair", price: "250", image: "/chair haven.jpg" },
+  { id: 2, name: "Bright Space", price: "155", image: "/bright space.jpg" },
+  { id: 3, name: "Serene Seat", price: "125", image: "/serene seat.jpg" },
+  { id: 4, name: "Reflective Haven", price: "399", image: "/reflective haven.jpg" },
 ]
