@@ -71,7 +71,7 @@ export default function ShoppingCart() {
               />
             </motion.div>
             <div>
-              <h3 className="text-lg font-normal">Graystone vase</h3>
+              <h3 className="text-lg font-normal">Cloud Haven Chair</h3>
               <p className="mt-1 text-sm text-gray-500">
                 A timeless ceramic vase with a tri color grey glaze.
               </p>
@@ -105,7 +105,7 @@ export default function ShoppingCart() {
               />
             </motion.div>
             <div>
-              <h3 className="text-lg font-normal">Basic white vase</h3>
+              <h3 className="text-lg font-normal">Comfatable Bed</h3>
               <p className="mt-1 text-sm text-gray-500">
                 Beautiful and simple this is one for the classics
               </p>
