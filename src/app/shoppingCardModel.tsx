@@ -1,19 +1,25 @@
-'use client';
-
 import React from 'react';
-import { Product } from '@/sanity/schemaTypes/products'; // Ensure this is correctly imported as a type
 
+// Define the CartItem type (or import if it's defined elsewhere)
+type CartItem = {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+};
+
+// Define the ShoppingCartModalProps type
 interface ShoppingCartModalProps {
-  cartItems: Product[]; // Use the correct Product type
+  cartItems: CartItem[]; // CartItem[] or Product[] depending on your needs
   setIsCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setCartItems: React.Dispatch<React.SetStateAction<Product[]>>; // Use the correct Product type
+  setCartItems: React.Dispatch<React.SetStateAction<CartItem[]>>; // Matching the cartItems type
 }
 
 const ShoppingCartModal: React.FC<ShoppingCartModalProps> = ({ cartItems, setIsCartOpen, setCartItems }) => {
   // Remove item from cart
   const removeItemFromCart = (productId: string) => {
-    const updatedCart = cartItems.filter(item => item._id !== productId);
-    setCartItems(updatedCart);
+    const updatedCart = cartItems.filter(item => item.id !== productId); // Corrected from _id to id
+    setCartItems(updatedCart); 
   };
 
   return (
@@ -23,10 +29,10 @@ const ShoppingCartModal: React.FC<ShoppingCartModalProps> = ({ cartItems, setIsC
         <ul>
           {cartItems.length > 0 ? (
             cartItems.map(item => (
-              <li key={item._id} className="flex justify-between py-2">
-                <span>{item.title} - ${item.price}</span>
+              <li key={item.id} className="flex justify-between py-2">
+                <span>{item.name} - ${item.price}</span>
                 <button
-                  onClick={() => removeItemFromCart(item._id)}
+                  onClick={() => removeItemFromCart(item.id)} // Corrected from _id to id
                   className="text-red-500 hover:text-red-700"
                 >
                   Remove
