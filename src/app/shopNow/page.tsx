@@ -27,8 +27,8 @@ type CartItem = {
 type Address = {
   name: string;
   phone: string;
-  addressLine1: string;
-  addressLine2?: string;
+  addressLine1: "1600 Pennsylvania Avenue NW",
+  addressLine2: "",
   cityLocality: string;
   stateProvince: string;
   postalCode: string;

@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
 import React from 'react';
-import { product } from '@/sanity/schemaTypes/products'; // Assume the `Product` type exists
+import { Product } from '@/sanity/schemaTypes/products'; // Ensure this is correctly imported as a type
 
 interface ShoppingCartModalProps {
-  cartItems: product[];
+  cartItems: Product[]; // Use the correct Product type
   setIsCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setCartItems: React.Dispatch<React.SetStateAction<Product[]>>;
+  setCartItems: React.Dispatch<React.SetStateAction<Product[]>>; // Use the correct Product type
 }
 
 const ShoppingCartModal: React.FC<ShoppingCartModalProps> = ({ cartItems, setIsCartOpen, setCartItems }) => {
