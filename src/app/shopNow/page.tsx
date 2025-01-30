@@ -1,9 +1,29 @@
-"use client"; // This line tells Next.js to treat this file as a client-side component
+"use client"; 
 
 import React, { useState, useEffect, useRef } from "react";
 import Header_3 from "../component/headetr_3/page";
 import Header from "../component/header-2";
 import axios from "axios";
+
+// Define Address Type
+type Address = {
+  name: string;
+  phone: string;
+  addressLine1: string;
+  addressLine2?: string;
+  cityLocality: string;
+  stateProvince: string;
+  postalCode: string;
+  countryCode: string;
+  addressResidentialIndicator: string;
+};
+
+// Define Rate Type
+type Rate = {
+  rateId: string;
+  serviceCode: string;
+  shippingAmount: number;
+};
 
 // Define Product Type
 type Product = {
@@ -14,6 +34,8 @@ type Product = {
   imageUrl: string;
   discountedPrice: number;
   title: string;
+  weight?: number; // Added weight to avoid undefined errors
+  dimensions?: string; // Added dimensions to avoid undefined errors
 };
 
 // Define Cart Item Type (with quantity)
@@ -46,7 +68,7 @@ const ShopNow = () => {
   });
 
   const [rates, setRates] = useState<Rate[]>([]);
-  const [ setrateId] = useState<string | null>(null);
+  const [rateId, setRateId] = useState<string | null>(null); // Fixed state update name
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
 
@@ -113,9 +135,9 @@ const ShopNow = () => {
     try {
       const response = await axios.post("/api/shipengine/get-rates", {
         shipeToAddress,
-        packages: cartProductsWhichCanBeShipped.map((product) => ({
-          weight: product.weight,
-          dimensions: product.dimensions,
+        packages: cart.map((item) => ({
+          weight: item.product.weight,
+          dimensions: item.product.dimensions,
         })),
       });
 
@@ -128,8 +150,6 @@ const ShopNow = () => {
       setLoading(false);
     }
   };
-
- 
 
   return (
     <main>
@@ -247,7 +267,7 @@ const ShopNow = () => {
                     <span>{rate.serviceCode}</span>
                     <span>{`$${rate.shippingAmount}`}</span>
                     <button
-                      onClick={() => setrateId(rate.rateId)}
+                      onClick={() => setRateId(rate.rateId)} // Fixed state update
                       className="bg-blue-600 text-white py-1 px-3 rounded-md hover:bg-blue-700"
                     >
                       Select
@@ -257,9 +277,6 @@ const ShopNow = () => {
               </ul>
             </div>
           )}
-
-          
-
         </div>
       </div>
     </main>
