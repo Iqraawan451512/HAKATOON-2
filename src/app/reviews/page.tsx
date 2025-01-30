@@ -1,4 +1,5 @@
-"use client";
+    {*/*
+    "use client";
 import React, { useState } from "react";
 
 const ReviewsPage = () => {
@@ -37,7 +38,7 @@ const ReviewsPage = () => {
           Customer Reviews
         </h1>
 
-        {/* Review Form */}
+        {/* Review Form 
         <div className="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
           <h2 className="text-xl font-medium mb-4 text-gray-700">
             Leave a Review
@@ -109,7 +110,7 @@ const ReviewsPage = () => {
           </form>
         </div>
 
-        {/* Reviews List */}
+        {/* Reviews List 
         <div className="space-y-6">
           {reviews.map((review, index) => (
             <div
@@ -131,4 +132,4 @@ const ReviewsPage = () => {
   );
 };
 
-export default ReviewsPage;
+export default ReviewsPage; * */}
