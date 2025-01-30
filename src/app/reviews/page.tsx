@@ -1,46 +1,50 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 
 const ReviewsPage = () => {
   const [reviews, setReviews] = useState([
     {
-      name: 'malik Shahzain',
+      name: "malik Shahzain",
       rating: 4,
-      comment: 'Great product! Really satisfied with the quality.',
+      comment: "Great product! Really satisfied with the quality.",
     },
     {
-      name: 'Zara khan',
+      name: "Zara khan",
       rating: 5,
-      comment: 'Excellent! Worth every penny.',
+      comment: "Excellent! Worth every penny.",
     },
   ]);
 
   const [newReview, setNewReview] = useState({
-    name: '',
+    name: "",
     rating: 1,
-    comment: '',
+    comment: "",
   });
 
-  // Define the event type here
+  // ✅ Correctly typed function
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (newReview.name && newReview.comment) {
       setReviews([...reviews, newReview]);
-      setNewReview({ name: '', rating: 1, comment: '' });
+      setNewReview({ name: "", rating: 1, comment: "" });
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-slate-400 via-indigo-100 to-slate-200 p-10">
       <div className="container mx-auto bg-white shadow-xl rounded-lg p-8 mb-10 max-w-4xl bg-opacity-80 backdrop-blur-md">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8 hover:text-cyan-800">Customer Reviews</h1>
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8 hover:text-cyan-800">
+          Customer Reviews
+        </h1>
 
         {/* Review Form */}
         <div className="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
-          <h2 className="text-xl font-medium mb-4 text-gray-700">Leave a Review</h2>
-          {/* Motivational Paragraph */}
+          <h2 className="text-xl font-medium mb-4 text-gray-700">
+            Leave a Review
+          </h2>
           <p className="text-center text-gray-600 text-lg mb-8">
-            Your feedback is very important to us! Help others by sharing your experience.
+            Your feedback is very important to us! Help others by sharing your
+            experience.
           </p>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
@@ -53,7 +57,9 @@ const ReviewsPage = () => {
                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
                 placeholder="Your name"
                 value={newReview.name}
-                onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
+                onChange={(e) =>
+                  setNewReview({ ...newReview, name: e.target.value })
+                }
                 required
               />
             </div>
@@ -66,7 +72,9 @@ const ReviewsPage = () => {
                 id="rating"
                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
                 value={newReview.rating}
-                onChange={(e):void => setNewReview({ ...newReview, rating: Number(e.target.value) })}
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                  setNewReview({ ...newReview, rating: Number(e.target.value) })
+                }
               >
                 <option value="1">1 - Poor</option>
                 <option value="2">2 - Fair</option>
@@ -85,7 +93,9 @@ const ReviewsPage = () => {
                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
                 placeholder="Your comments"
                 value={newReview.comment}
-                onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
+                onChange={(e) =>
+                  setNewReview({ ...newReview, comment: e.target.value })
+                }
                 required
               ></textarea>
             </div>
@@ -106,9 +116,11 @@ const ReviewsPage = () => {
               key={index}
               className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             >
-              <h3 className="font-semibold text-lg text-gray-800">{review.name}</h3>
+              <h3 className="font-semibold text-lg text-gray-800">
+                {review.name}
+              </h3>
               <p className="text-yellow-500">
-                {'★'.repeat(review.rating)} {'☆'.repeat(5 - review.rating)}
+                {"★".repeat(review.rating)} {"☆".repeat(5 - review.rating)}
               </p>
               <p className="text-gray-700 mt-2">{review.comment}</p>
             </div>
