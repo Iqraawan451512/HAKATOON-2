@@ -3,27 +3,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Header_3 from "../component/headetr_3/page";
 import Header from "../component/header-2";
-import axios from "axios";
 
-// Define Address Type
-type Address = {
-  name: string;
-  phone: string;
-  addressLine1: string;
-  addressLine2?: string;
-  cityLocality: string;
-  stateProvince: string;
-  postalCode: string;
-  countryCode: string;
-  addressResidentialIndicator: string;
-};
 
-// Define Rate Type
-type Rate = {
-  rateId: string;
-  serviceCode: string;
-  shippingAmount: number;
-};
+
+
 
 // Define Product Type
 type Product = {
@@ -55,22 +38,22 @@ const ShopNow = () => {
   const checkoutRef = useRef<HTMLDivElement | null>(null); // Reference to the checkout section
 
   // State for shipping address and rates
-  const [shipeToAddress, setshipeToAddress] = useState<Address>({
-    name: "John Doe",
-    phone: "+1 555-678-1234",
-    addressLine1: "1600 Pennsylvania Avenue NW",
-    addressLine2: "",
-    cityLocality: "Washington",
-    stateProvince: "DC",
-    postalCode: "20500",
-    countryCode: "US",
-    addressResidentialIndicator: "no",
-  });
+  // const [shipeToAddress, setshipeToAddress] = useState<Address>({
+  //   name: "John Doe",
+  //   phone: "+1 555-678-1234",
+  //   addressLine1: "1600 Pennsylvania Avenue NW",
+  //   addressLine2: "",
+  //   cityLocality: "Washington",
+  //   stateProvince: "DC",
+  //   postalCode: "20500",
+  //   countryCode: "US",
+  //   addressResidentialIndicator: "no",
+  // });
 
-  const [rates, setRates] = useState<Rate[]>([]);
-  const [rateId, setRateId] = useState<string | null>(null); // Fixed state update name
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState<string[]>([]);
+  // const [rates, setRates] = useState<Rate[]>([]);
+  // const [rateId, setRateId] = useState<string | null>(null); // Fixed state update name
+  // const [loading, setLoading] = useState(false);
+  // const [errors, setErrors] = useState<string[]>([]);
 
   // Fetch products data from API
   useEffect(() => {
@@ -126,30 +109,30 @@ const ShopNow = () => {
   };
 
   // Function to handle form submission of shipping rates
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setErrors([]);
-    setRates([]);
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   setErrors([]);
+  //   setRates([]);
 
-    try {
-      const response = await axios.post("/api/shipengine/get-rates", {
-        shipeToAddress,
-        packages: cart.map((item) => ({
-          weight: item.product.weight,
-          dimensions: item.product.dimensions,
-        })),
-      });
+  //   try {
+  //     const response = await axios.post("/api/shipengine/get-rates", {
+  //       shipeToAddress,
+  //       packages: cart.map((item) => ({
+  //         weight: item.product.weight,
+  //         dimensions: item.product.dimensions,
+  //       })),
+  //     });
 
-      console.log(response.data);
-      setRates(response.data.shipmentDetails.rateResponse.rates);
-    } catch (error) {
-      console.log(error);
-      setErrors(["An error occurred while fetching rates."]);
-    } finally {
-      setLoading(false);
-    }
-  };
+  //     console.log(response.data);
+  //     setRates(response.data.shipmentDetails.rateResponse.rates);
+  //   } catch (error) {
+  //     console.log(error);
+  //     setErrors(["An error occurred while fetching rates."]);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <main>
@@ -220,64 +203,6 @@ const ShopNow = () => {
             <p className="mt-4 text-gray-700">Thank you for your purchase! We will process your order soon.</p>
           </div>
         )}
-      </div>
-
-      {/* Shipping Rates Form */}
-      <div className="min-h-screen text-black bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-6">Shipping Rates Calculator</h1>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* To Address Section */}
-            <div>
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">Ship To Address</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input type="text" placeholder="Name" value={shipeToAddress.name} onChange={(e) => setshipeToAddress({ ...shipeToAddress, name: e.target.value })} className="p-2 border border-gray-300 rounded-md" required />
-                <input type="text" placeholder="Phone" value={shipeToAddress.phone} onChange={(e) => setshipeToAddress({ ...shipeToAddress, phone: e.target.value })} className="p-2 border border-gray-300 rounded-md" required />
-                <input type="text" placeholder="Address Line 1" value={shipeToAddress.addressLine1} onChange={(e) => setshipeToAddress({ ...shipeToAddress, addressLine1: e.target.value })} className="p-2 border border-gray-300 rounded-md" required />
-                <input type="text" placeholder="Address Line 2" value={shipeToAddress.addressLine2} onChange={(e) => setshipeToAddress({ ...shipeToAddress, addressLine2: e.target.value })} className="p-2 border border-gray-300 rounded-md" />
-                <input type="text" placeholder="City" value={shipeToAddress.cityLocality} onChange={(e) => setshipeToAddress({ ...shipeToAddress, cityLocality: e.target.value })} className="p-2 border border-gray-300 rounded-md" required />
-                <input type="text" placeholder="State" value={shipeToAddress.stateProvince} onChange={(e) => setshipeToAddress({ ...shipeToAddress, stateProvince: e.target.value })} className="p-2 border border-gray-300 rounded-md" required />
-                <input type="text" placeholder="Postal Code" value={shipeToAddress.postalCode} onChange={(e) => setshipeToAddress({ ...shipeToAddress, postalCode: e.target.value })} className="p-2 border border-gray-300 rounded-md" required />
-                <input type="text" placeholder="Country Code" value={shipeToAddress.countryCode} onChange={(e) => setshipeToAddress({ ...shipeToAddress, countryCode: e.target.value })} className="p-2 border border-gray-300 rounded-md" required />
-              </div>
-            </div>
-
-            {/* Submit Button */}
-            <button type="submit" className="w-full py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700">
-              {loading ? "Loading..." : "Get Shipping Rates"}
-            </button>
-          </form>
-
-          {/* Errors */}
-          {errors.length > 0 && (
-            <div className="mt-6 bg-red-200 p-4 text-red-800 rounded-md">
-              {errors.map((error, index) => (
-                <p key={index}>{error}</p>
-              ))}
-            </div>
-          )}
-
-          {/* Shipping Rates */}
-          {rates.length > 0 && (
-            <div className="mt-6">
-              <h3 className="text-xl font-semibold text-gray-800">Available Shipping Rates</h3>
-              <ul className="mt-4">
-                {rates.map((rate) => (
-                  <li key={rate.rateId} className="flex justify-between items-center border-b py-2">
-                    <span>{rate.serviceCode}</span>
-                    <span>{`$${rate.shippingAmount}`}</span>
-                    <button
-                      onClick={() => setRateId(rate.rateId)} // Fixed state update
-                      className="bg-blue-600 text-white py-1 px-3 rounded-md hover:bg-blue-700"
-                    >
-                      Select
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
       </div>
     </main>
   );
