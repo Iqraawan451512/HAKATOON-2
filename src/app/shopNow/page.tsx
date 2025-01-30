@@ -4,10 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Header_3 from "../component/headetr_3/page";
 import Header from "../component/header-2";
 
-
-
-
-
 // Define Product Type
 type Product = {
   _id: string;
@@ -27,6 +23,19 @@ type CartItem = {
   quantity: number;
 };
 
+// Define Address Type
+type Address = {
+  name: string;
+  phone: string;
+  addressLine1: string;
+  addressLine2?: string;
+  cityLocality: string;
+  stateProvince: string;
+  postalCode: string;
+  countryCode: string;
+  addressResidentialIndicator: string;
+};
+
 const ShopNow = () => {
   // State to hold products and cart data
   const [products, setProducts] = useState<Product[]>([]);
@@ -38,22 +47,17 @@ const ShopNow = () => {
   const checkoutRef = useRef<HTMLDivElement | null>(null); // Reference to the checkout section
 
   // State for shipping address and rates
-  // const [shipeToAddress, setshipeToAddress] = useState<Address>({
-  //   name: "John Doe",
-  //   phone: "+1 555-678-1234",
-  //   addressLine1: "1600 Pennsylvania Avenue NW",
-  //   addressLine2: "",
-  //   cityLocality: "Washington",
-  //   stateProvince: "DC",
-  //   postalCode: "20500",
-  //   countryCode: "US",
-  //   addressResidentialIndicator: "no",
-  // });
-
-  // const [rates, setRates] = useState<Rate[]>([]);
-  // const [rateId, setRateId] = useState<string | null>(null); // Fixed state update name
-  // const [loading, setLoading] = useState(false);
-  // const [errors, setErrors] = useState<string[]>([]);
+  const [shipeToAddress, setshipeToAddress] = useState<Address>({
+    name: "John Doe",
+    phone: "+1 555-678-1234",
+    addressLine1: "1600 Pennsylvania Avenue NW",
+    addressLine2: "",
+    cityLocality: "Washington",
+    stateProvince: "DC",
+    postalCode: "20500",
+    countryCode: "US",
+    addressResidentialIndicator: "no",
+  });
 
   // Fetch products data from API
   useEffect(() => {
@@ -107,32 +111,6 @@ const ShopNow = () => {
       });
     }
   };
-
-  // Function to handle form submission of shipping rates
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setErrors([]);
-  //   setRates([]);
-
-  //   try {
-  //     const response = await axios.post("/api/shipengine/get-rates", {
-  //       shipeToAddress,
-  //       packages: cart.map((item) => ({
-  //         weight: item.product.weight,
-  //         dimensions: item.product.dimensions,
-  //       })),
-  //     });
-
-  //     console.log(response.data);
-  //     setRates(response.data.shipmentDetails.rateResponse.rates);
-  //   } catch (error) {
-  //     console.log(error);
-  //     setErrors(["An error occurred while fetching rates."]);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   return (
     <main>
