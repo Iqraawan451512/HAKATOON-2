@@ -47,17 +47,17 @@ const ShopNow = () => {
   const checkoutRef = useRef<HTMLDivElement | null>(null); // Reference to the checkout section
 
   // State for shipping address and rates
-  const [shipeToAddress, setshipeToAddress] = useState<Address>({
-    name: "John Doe",
-    phone: "+1 555-678-1234",
-    addressLine1: "1600 Pennsylvania Avenue NW",
-    addressLine2: "",
-    cityLocality: "Washington",
-    stateProvince: "DC",
-    postalCode: "20500",
-    countryCode: "US",
-    addressResidentialIndicator: "no",
-  });
+  // const [shipeToAddress, setshipeToAddress] = useState<Address>({
+  //   name: "John Doe",
+  //   phone: "+1 555-678-1234",
+  //   addressLine1: "1600 Pennsylvania Avenue NW",
+  //   addressLine2: "",
+  //   cityLocality: "Washington",
+  //   stateProvince: "DC",
+  //   postalCode: "20500",
+  //   countryCode: "US",
+  //   addressResidentialIndicator: "no",
+  // });
 
   // Fetch products data from API
   useEffect(() => {
