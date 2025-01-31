@@ -23,6 +23,7 @@ type CartItem = {
   quantity: number;
 };
 
+{ /** 
 // Define Address Type
 type Address = {
   name: string;
@@ -34,7 +35,7 @@ type Address = {
   postalCode: string;
   countryCode: string;
   addressResidentialIndicator: string;
-};
+};*/}
 
 const ShopNow = () => {
   // State to hold products and cart data
