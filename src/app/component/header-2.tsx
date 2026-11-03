@@ -57,13 +57,13 @@ function Header() {
   };
 
   return (
-    <nav className="bg-white flex items-center h-[5rem] gap-10 border-b border-[#e5e5e5] px-4 top-10 left-0 right-0">
-      <h1 className="logo font-sans font-bold text-[1.6rem] ml-[1rem] md:ml-[4rem] text-[#003049] hover:text-blue-400 cursor-pointer">
+    <nav className="relative bg-white flex items-center h-16 sm:h-[5rem] gap-3 md:gap-6 lg:gap-10 border-b border-[#e5e5e5] px-4 sm:px-6 lg:px-8">
+      <h1 className="logo font-sans font-bold text-[1.3rem] sm:text-[1.6rem] lg:ml-[2rem] text-[#003049] hover:text-blue-400 cursor-pointer">
         Bandage
       </h1>
 
       {/* Main Navigation */}
-      <ol className="hidden md:ml-[15rem] sm:flex gap-5 font-serif text-[1rem]">
+      <ol className="hidden md:flex md:mx-auto gap-4 lg:gap-6 font-serif text-[0.95rem] lg:text-[1rem]">
         <Link href="/">
           <li className="text-gray-400 hover:text-blue-800 font-semibold">Home</li>
         </Link>
@@ -85,8 +85,8 @@ function Header() {
       </ol>
 
       {/* Right Section: Icons */}
-      <div className="flex flex-row gap-3 ml-auto">
-        <p className="flex font-bold text-sky-400">
+      <div className="flex flex-row items-center gap-2 sm:gap-3 ml-auto md:ml-0">
+        <p className="flex items-center whitespace-nowrap text-sm sm:text-base font-bold text-sky-400">
           <MdSupervisorAccount className="text-[1.4rem] hover:text-blue-900 cursor-pointer" />
 
           {/* Login Button */}
@@ -122,18 +122,24 @@ function Header() {
       </div>
 
       {/* Mobile Hamburger Icon */}
-      <div className="sm:hidden flex-col flex items-center cursor-pointer" onClick={toggleMenu}>
+      <button
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded={isMenuOpen}
+        className="md:hidden flex-col flex items-center cursor-pointer p-1"
+        onClick={toggleMenu}
+      >
         <div className="w-6 h-1 bg-sky-900 mb-1"></div>
         <div className="w-6 h-1 bg-sky-900 mb-1"></div>
         <div className="w-6 h-1 bg-sky-900"></div>
-      </div>
+      </button>
 
       {/* Mobile Navigation Menu */}
       <div
-        className={`sm:hidden ${isMenuOpen ? "block" : "hidden"} absolute top-20 left-0 right-0 bg-[#14213d] text-white ml-5 py-4`}
+        className={`md:hidden ${isMenuOpen ? "block" : "hidden"} absolute top-full left-0 right-0 bg-[#14213d] text-white py-4`}
         style={{ zIndex: 40 }}
       >
-        <ol className="flex flex-col items-center">
+        <ol className="flex flex-col items-center" onClick={() => setIsMenuOpen(false)}>
           <Link href="/">
             <li className="py-2 hover:text-sky-400">Home</li>
           </Link>
